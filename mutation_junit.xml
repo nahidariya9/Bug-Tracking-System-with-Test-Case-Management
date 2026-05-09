@@ -1,0 +1,3977 @@
+<?xml version="1.0" ?>
+<testsuites disabled="0" errors="0" failures="224" tests="429" time="0.0">
+	<testsuite disabled="0" errors="0" failures="224" name="mutmut" skipped="0" tests="429" time="0">
+		<testcase name="Mutant #1" file="app/routes/executions.py" line="4">
+			<system-out>bp = Blueprint(&quot;executions&quot;, __name__, url_prefix=&quot;/executions&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #2" file="app/routes/executions.py" line="4">
+			<system-out>bp = Blueprint(&quot;executions&quot;, __name__, url_prefix=&quot;/executions&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #3" file="app/routes/executions.py" line="4">
+			<system-out>bp = Blueprint(&quot;executions&quot;, __name__, url_prefix=&quot;/executions&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #4" file="app/routes/executions.py" line="7">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #5" file="app/routes/executions.py" line="7">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #6" file="app/routes/executions.py" line="9">
+			<system-out>    db         = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #7" file="app/routes/executions.py" line="15">
+			<system-out>    &quot;&quot;&quot;).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #8" file="app/routes/executions.py" line="16">
+			<system-out>    return render_template(&quot;executions/list.html&quot;, executions=executions)</system-out>
+		</testcase>
+		<testcase name="Mutant #9" file="app/routes/executions.py" line="19">
+			<system-out>@bp.route(&quot;/run&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #10" file="app/routes/executions.py" line="19">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -16,7 +16,7 @@
+     return render_template(&quot;executions/list.html&quot;, executions=executions)
+ 
+ 
+-@bp.route(&quot;/run&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
++@bp.route(&quot;/run&quot;, methods=[&quot;XXGETXX&quot;, &quot;POST&quot;])
+ def run_execution():
+     db    = get_db()
+     cases = db.execute(
+</failure>
+			<system-out>@bp.route(&quot;/run&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #11" file="app/routes/executions.py" line="19">
+			<system-out>@bp.route(&quot;/run&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #12" file="app/routes/executions.py" line="19">
+			<system-out>@bp.route(&quot;/run&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #13" file="app/routes/executions.py" line="21">
+			<system-out>    db    = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #14" file="app/routes/executions.py" line="23">
+			<system-out>        &quot;SELECT id, title FROM test_cases ORDER BY title&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #15" file="app/routes/executions.py" line="24">
+			<system-out>    ).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #16" file="app/routes/executions.py" line="26">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #17" file="app/routes/executions.py" line="26">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #18" file="app/routes/executions.py" line="27">
+			<system-out>        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int)</system-out>
+		</testcase>
+		<testcase name="Mutant #19" file="app/routes/executions.py" line="27">
+			<system-out>        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int)</system-out>
+		</testcase>
+		<testcase name="Mutant #20" file="app/routes/executions.py" line="28">
+			<system-out>        result       = request.form[&quot;result&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #21" file="app/routes/executions.py" line="28">
+			<system-out>        result       = request.form[&quot;result&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #22" file="app/routes/executions.py" line="29">
+			<system-out>        notes        = request.form[&quot;notes&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #23" file="app/routes/executions.py" line="29">
+			<system-out>        notes        = request.form[&quot;notes&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #24" file="app/routes/executions.py" line="31">
+			<system-out>        errors = []</system-out>
+		</testcase>
+		<testcase name="Mutant #25" file="app/routes/executions.py" line="32">
+			<system-out>        if not test_case_id:</system-out>
+		</testcase>
+		<testcase name="Mutant #26" file="app/routes/executions.py" line="33">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -30,7 +30,7 @@
+ 
+         errors = []
+         if not test_case_id:
+-            errors.append(&quot;Please select a test case.&quot;)
++            errors.append(&quot;XXPlease select a test case.XX&quot;)
+         if result not in (&quot;Pass&quot;, &quot;Fail&quot;):
+             errors.append(&quot;Result must be Pass or Fail.&quot;)
+ 
+</failure>
+			<system-out>            errors.append(&quot;Please select a test case.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #27" file="app/routes/executions.py" line="34">
+			<system-out>        if result not in (&quot;Pass&quot;, &quot;Fail&quot;):</system-out>
+		</testcase>
+		<testcase name="Mutant #28" file="app/routes/executions.py" line="34">
+			<system-out>        if result not in (&quot;Pass&quot;, &quot;Fail&quot;):</system-out>
+		</testcase>
+		<testcase name="Mutant #29" file="app/routes/executions.py" line="34">
+			<system-out>        if result not in (&quot;Pass&quot;, &quot;Fail&quot;):</system-out>
+		</testcase>
+		<testcase name="Mutant #30" file="app/routes/executions.py" line="35">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -32,7 +32,7 @@
+         if not test_case_id:
+             errors.append(&quot;Please select a test case.&quot;)
+         if result not in (&quot;Pass&quot;, &quot;Fail&quot;):
+-            errors.append(&quot;Result must be Pass or Fail.&quot;)
++            errors.append(&quot;XXResult must be Pass or Fail.XX&quot;)
+ 
+         if errors:
+             for e in errors:
+</failure>
+			<system-out>            errors.append(&quot;Result must be Pass or Fail.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #31" file="app/routes/executions.py" line="39">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -36,7 +36,7 @@
+ 
+         if errors:
+             for e in errors:
+-                flash(e, &quot;danger&quot;)
++                flash(e, &quot;XXdangerXX&quot;)
+             return render_template(&quot;executions/run.html&quot;, cases=cases)
+ 
+         db.execute(&quot;&quot;&quot;
+</failure>
+			<system-out>                flash(e, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #32" file="app/routes/executions.py" line="40">
+			<system-out>            return render_template(&quot;executions/run.html&quot;, cases=cases)</system-out>
+		</testcase>
+		<testcase name="Mutant #33" file="app/routes/executions.py" line="47">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -44,7 +44,7 @@
+             VALUES (?, ?, ?)
+         &quot;&quot;&quot;, (test_case_id, result, notes))
+         db.commit()
+-        flash(f&quot;Execution recorded: {result}.&quot;, &quot;success&quot;)
++        flash(f&quot;XXExecution recorded: {result}.XX&quot;, &quot;success&quot;)
+         return redirect(url_for(&quot;executions.list_executions&quot;))
+ 
+     return render_template(&quot;executions/run.html&quot;, cases=cases)
+</failure>
+			<system-out>        flash(f&quot;Execution recorded: {result}.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #34" file="app/routes/executions.py" line="47">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -44,7 +44,7 @@
+             VALUES (?, ?, ?)
+         &quot;&quot;&quot;, (test_case_id, result, notes))
+         db.commit()
+-        flash(f&quot;Execution recorded: {result}.&quot;, &quot;success&quot;)
++        flash(f&quot;Execution recorded: {result}.&quot;, &quot;XXsuccessXX&quot;)
+         return redirect(url_for(&quot;executions.list_executions&quot;))
+ 
+     return render_template(&quot;executions/run.html&quot;, cases=cases)
+</failure>
+			<system-out>        flash(f&quot;Execution recorded: {result}.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #35" file="app/routes/executions.py" line="48">
+			<system-out>        return redirect(url_for(&quot;executions.list_executions&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #36" file="app/routes/executions.py" line="50">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -47,7 +47,7 @@
+         flash(f&quot;Execution recorded: {result}.&quot;, &quot;success&quot;)
+         return redirect(url_for(&quot;executions.list_executions&quot;))
+ 
+-    return render_template(&quot;executions/run.html&quot;, cases=cases)
++    return render_template(&quot;XXexecutions/run.htmlXX&quot;, cases=cases)
+ 
+ 
+ @bp.route(&quot;/&lt;int:exec_id&gt;&quot;)
+</failure>
+			<system-out>    return render_template(&quot;executions/run.html&quot;, cases=cases)</system-out>
+		</testcase>
+		<testcase name="Mutant #37" file="app/routes/executions.py" line="53">
+			<system-out>@bp.route(&quot;/&lt;int:exec_id&gt;&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #38" file="app/routes/executions.py" line="53">
+			<system-out>@bp.route(&quot;/&lt;int:exec_id&gt;&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #39" file="app/routes/executions.py" line="55">
+			<system-out>    db        = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #40" file="app/routes/executions.py" line="61">
+			<system-out>    &quot;&quot;&quot;, (exec_id,)).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #41" file="app/routes/executions.py" line="63">
+			<system-out>    if execution is None:</system-out>
+		</testcase>
+		<testcase name="Mutant #42" file="app/routes/executions.py" line="64">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -61,7 +61,7 @@
+     &quot;&quot;&quot;, (exec_id,)).fetchone()
+ 
+     if execution is None:
+-        flash(&quot;Execution not found.&quot;, &quot;danger&quot;)
++        flash(&quot;XXExecution not found.XX&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;executions.list_executions&quot;))
+ 
+     return render_template(&quot;executions/view.html&quot;, execution=execution)
+</failure>
+			<system-out>        flash(&quot;Execution not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #43" file="app/routes/executions.py" line="64">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -61,7 +61,7 @@
+     &quot;&quot;&quot;, (exec_id,)).fetchone()
+ 
+     if execution is None:
+-        flash(&quot;Execution not found.&quot;, &quot;danger&quot;)
++        flash(&quot;Execution not found.&quot;, &quot;XXdangerXX&quot;)
+         return redirect(url_for(&quot;executions.list_executions&quot;))
+ 
+     return render_template(&quot;executions/view.html&quot;, execution=execution)
+</failure>
+			<system-out>        flash(&quot;Execution not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #44" file="app/routes/executions.py" line="65">
+			<failure type="failure" message="bad_survived">--- app/routes/executions.py
++++ app/routes/executions.py
+@@ -62,6 +62,6 @@
+ 
+     if execution is None:
+         flash(&quot;Execution not found.&quot;, &quot;danger&quot;)
+-        return redirect(url_for(&quot;executions.list_executions&quot;))
++        return redirect(url_for(&quot;XXexecutions.list_executionsXX&quot;))
+ 
+     return render_template(&quot;executions/view.html&quot;, execution=execution)
+</failure>
+			<system-out>        return redirect(url_for(&quot;executions.list_executions&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #45" file="app/routes/executions.py" line="67">
+			<system-out>    return render_template(&quot;executions/view.html&quot;, execution=execution)</system-out>
+		</testcase>
+		<testcase name="Mutant #46" file="app/routes/bugs.py" line="4">
+			<system-out>bp = Blueprint(&quot;bugs&quot;, __name__, url_prefix=&quot;/bugs&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #47" file="app/routes/bugs.py" line="4">
+			<system-out>bp = Blueprint(&quot;bugs&quot;, __name__, url_prefix=&quot;/bugs&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #48" file="app/routes/bugs.py" line="4">
+			<system-out>bp = Blueprint(&quot;bugs&quot;, __name__, url_prefix=&quot;/bugs&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #49" file="app/routes/bugs.py" line="8">
+			<system-out>    &quot;Open&quot;:        [&quot;In Progress&quot;],</system-out>
+		</testcase>
+		<testcase name="Mutant #50" file="app/routes/bugs.py" line="8">
+			<system-out>    &quot;Open&quot;:        [&quot;In Progress&quot;],</system-out>
+		</testcase>
+		<testcase name="Mutant #51" file="app/routes/bugs.py" line="9">
+			<system-out>    &quot;In Progress&quot;: [&quot;Resolved&quot;],</system-out>
+		</testcase>
+		<testcase name="Mutant #52" file="app/routes/bugs.py" line="9">
+			<system-out>    &quot;In Progress&quot;: [&quot;Resolved&quot;],</system-out>
+		</testcase>
+		<testcase name="Mutant #53" file="app/routes/bugs.py" line="10">
+			<system-out>    &quot;Resolved&quot;:    [&quot;Closed&quot;, &quot;In Progress&quot;],</system-out>
+		</testcase>
+		<testcase name="Mutant #54" file="app/routes/bugs.py" line="10">
+			<system-out>    &quot;Resolved&quot;:    [&quot;Closed&quot;, &quot;In Progress&quot;],</system-out>
+		</testcase>
+		<testcase name="Mutant #55" file="app/routes/bugs.py" line="10">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -7,7 +7,7 @@
+ TRANSITIONS = {
+     &quot;Open&quot;:        [&quot;In Progress&quot;],
+     &quot;In Progress&quot;: [&quot;Resolved&quot;],
+-    &quot;Resolved&quot;:    [&quot;Closed&quot;, &quot;In Progress&quot;],
++    &quot;Resolved&quot;:    [&quot;Closed&quot;, &quot;XXIn ProgressXX&quot;],
+     &quot;Closed&quot;:      []
+ }
+ 
+</failure>
+			<system-out>    &quot;Resolved&quot;:    [&quot;Closed&quot;, &quot;In Progress&quot;],</system-out>
+		</testcase>
+		<testcase name="Mutant #56" file="app/routes/bugs.py" line="11">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -8,7 +8,7 @@
+     &quot;Open&quot;:        [&quot;In Progress&quot;],
+     &quot;In Progress&quot;: [&quot;Resolved&quot;],
+     &quot;Resolved&quot;:    [&quot;Closed&quot;, &quot;In Progress&quot;],
+-    &quot;Closed&quot;:      []
++    &quot;XXClosedXX&quot;:      []
+ }
+ 
+ SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]
+</failure>
+			<system-out>    &quot;Closed&quot;:      []</system-out>
+		</testcase>
+		<testcase name="Mutant #57" file="app/routes/bugs.py" line="12">
+			<system-out>}</system-out>
+		</testcase>
+		<testcase name="Mutant #58" file="app/routes/bugs.py" line="14">
+			<system-out>SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #59" file="app/routes/bugs.py" line="14">
+			<system-out>SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #60" file="app/routes/bugs.py" line="14">
+			<system-out>SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #61" file="app/routes/bugs.py" line="14">
+			<system-out>SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #62" file="app/routes/bugs.py" line="14">
+			<system-out>SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #63" file="app/routes/bugs.py" line="15">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -12,7 +12,7 @@
+ }
+ 
+ SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]
+-STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]
++STATUSES   = [&quot;XXOpenXX&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]
+ 
+ 
+ @bp.route(&quot;/&quot;)
+</failure>
+			<system-out>STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #64" file="app/routes/bugs.py" line="15">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -12,7 +12,7 @@
+ }
+ 
+ SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]
+-STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]
++STATUSES   = [&quot;Open&quot;, &quot;XXIn ProgressXX&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]
+ 
+ 
+ @bp.route(&quot;/&quot;)
+</failure>
+			<system-out>STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #65" file="app/routes/bugs.py" line="15">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -12,7 +12,7 @@
+ }
+ 
+ SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]
+-STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]
++STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;XXResolvedXX&quot;, &quot;Closed&quot;]
+ 
+ 
+ @bp.route(&quot;/&quot;)
+</failure>
+			<system-out>STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #66" file="app/routes/bugs.py" line="15">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -12,7 +12,7 @@
+ }
+ 
+ SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]
+-STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]
++STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;XXClosedXX&quot;]
+ 
+ 
+ @bp.route(&quot;/&quot;)
+</failure>
+			<system-out>STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #67" file="app/routes/bugs.py" line="15">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -12,7 +12,7 @@
+ }
+ 
+ SEVERITIES = [&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;, &quot;Critical&quot;]
+-STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]
++STATUSES   = None
+ 
+ 
+ @bp.route(&quot;/&quot;)
+</failure>
+			<system-out>STATUSES   = [&quot;Open&quot;, &quot;In Progress&quot;, &quot;Resolved&quot;, &quot;Closed&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #68" file="app/routes/bugs.py" line="18">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #69" file="app/routes/bugs.py" line="18">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #70" file="app/routes/bugs.py" line="20">
+			<system-out>    db   = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #71" file="app/routes/bugs.py" line="26">
+			<system-out>    &quot;&quot;&quot;).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #72" file="app/routes/bugs.py" line="27">
+			<system-out>    return render_template(&quot;bugs/list.html&quot;, bugs=bugs)</system-out>
+		</testcase>
+		<testcase name="Mutant #73" file="app/routes/bugs.py" line="30">
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #74" file="app/routes/bugs.py" line="30">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -27,7 +27,7 @@
+     return render_template(&quot;bugs/list.html&quot;, bugs=bugs)
+ 
+ 
+-@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
++@bp.route(&quot;/create&quot;, methods=[&quot;XXGETXX&quot;, &quot;POST&quot;])
+ def create_bug():
+     db           = get_db()
+     test_case_id = request.args.get(&quot;test_case_id&quot;, type=int)
+</failure>
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #75" file="app/routes/bugs.py" line="30">
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #76" file="app/routes/bugs.py" line="30">
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #77" file="app/routes/bugs.py" line="32">
+			<system-out>    db           = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #78" file="app/routes/bugs.py" line="33">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -30,7 +30,7 @@
+ @bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
+ def create_bug():
+     db           = get_db()
+-    test_case_id = request.args.get(&quot;test_case_id&quot;, type=int)
++    test_case_id = request.args.get(&quot;XXtest_case_idXX&quot;, type=int)
+     tc           = None
+     if test_case_id:
+         tc = db.execute(
+</failure>
+			<system-out>    test_case_id = request.args.get(&quot;test_case_id&quot;, type=int)</system-out>
+		</testcase>
+		<testcase name="Mutant #79" file="app/routes/bugs.py" line="33">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -30,7 +30,7 @@
+ @bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
+ def create_bug():
+     db           = get_db()
+-    test_case_id = request.args.get(&quot;test_case_id&quot;, type=int)
++    test_case_id = None
+     tc           = None
+     if test_case_id:
+         tc = db.execute(
+</failure>
+			<system-out>    test_case_id = request.args.get(&quot;test_case_id&quot;, type=int)</system-out>
+		</testcase>
+		<testcase name="Mutant #80" file="app/routes/bugs.py" line="34">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -31,7 +31,7 @@
+ def create_bug():
+     db           = get_db()
+     test_case_id = request.args.get(&quot;test_case_id&quot;, type=int)
+-    tc           = None
++    tc           = &quot;&quot;
+     if test_case_id:
+         tc = db.execute(
+             &quot;SELECT * FROM test_cases WHERE id = ?&quot;, (test_case_id,)
+</failure>
+			<system-out>    tc           = None</system-out>
+		</testcase>
+		<testcase name="Mutant #81" file="app/routes/bugs.py" line="37">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -34,7 +34,7 @@
+     tc           = None
+     if test_case_id:
+         tc = db.execute(
+-            &quot;SELECT * FROM test_cases WHERE id = ?&quot;, (test_case_id,)
++            &quot;XXSELECT * FROM test_cases WHERE id = ?XX&quot;, (test_case_id,)
+         ).fetchone()
+ 
+     if request.method == &quot;POST&quot;:
+</failure>
+			<system-out>            &quot;SELECT * FROM test_cases WHERE id = ?&quot;, (test_case_id,)</system-out>
+		</testcase>
+		<testcase name="Mutant #82" file="app/routes/bugs.py" line="38">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -33,9 +33,7 @@
+     test_case_id = request.args.get(&quot;test_case_id&quot;, type=int)
+     tc           = None
+     if test_case_id:
+-        tc = db.execute(
+-            &quot;SELECT * FROM test_cases WHERE id = ?&quot;, (test_case_id,)
+-        ).fetchone()
++        tc = None
+ 
+     if request.method == &quot;POST&quot;:
+         title        = request.form[&quot;title&quot;].strip()
+</failure>
+			<system-out>        ).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #83" file="app/routes/bugs.py" line="40">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #84" file="app/routes/bugs.py" line="40">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #85" file="app/routes/bugs.py" line="41">
+			<system-out>        title        = request.form[&quot;title&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #86" file="app/routes/bugs.py" line="41">
+			<system-out>        title        = request.form[&quot;title&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #87" file="app/routes/bugs.py" line="42">
+			<system-out>        module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #88" file="app/routes/bugs.py" line="42">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -39,7 +39,7 @@
+ 
+     if request.method == &quot;POST&quot;:
+         title        = request.form[&quot;title&quot;].strip()
+-        module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()
++        module       = request.form.get(&quot;module&quot;, &quot;XXXX&quot;).strip()
+         description  = request.form[&quot;description&quot;].strip()
+         severity     = request.form[&quot;severity&quot;]
+         test_case_id = request.form.get(&quot;XXtest_case_idXX&quot;, type=int)
+</failure>
+			<system-out>        module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #89" file="app/routes/bugs.py" line="42">
+			<system-out>        module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #90" file="app/routes/bugs.py" line="43">
+			<system-out>        description  = request.form[&quot;description&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #91" file="app/routes/bugs.py" line="43">
+			<system-out>        description  = request.form[&quot;description&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #92" file="app/routes/bugs.py" line="44">
+			<system-out>        severity     = request.form[&quot;severity&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #93" file="app/routes/bugs.py" line="44">
+			<system-out>        severity     = request.form[&quot;severity&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #96" file="app/routes/bugs.py" line="48">
+			<system-out>        errors = []</system-out>
+		</testcase>
+		<testcase name="Mutant #97" file="app/routes/bugs.py" line="49">
+			<system-out>        if not title:</system-out>
+		</testcase>
+		<testcase name="Mutant #98" file="app/routes/bugs.py" line="50">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -47,7 +47,7 @@
+         # --- Validation ---
+         errors = []
+         if not title:
+-            errors.append(&quot;Title is required.&quot;)
++            errors.append(&quot;XXTitle is required.XX&quot;)
+         if severity not in SEVERITIES:
+             errors.append(&quot;Invalid severity.&quot;)
+ 
+</failure>
+			<system-out>            errors.append(&quot;Title is required.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #99" file="app/routes/bugs.py" line="51">
+			<system-out>        if severity not in SEVERITIES:</system-out>
+		</testcase>
+		<testcase name="Mutant #100" file="app/routes/bugs.py" line="52">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -49,7 +49,7 @@
+         if not title:
+             errors.append(&quot;Title is required.&quot;)
+         if severity not in SEVERITIES:
+-            errors.append(&quot;Invalid severity.&quot;)
++            errors.append(&quot;XXInvalid severity.XX&quot;)
+ 
+         if errors:
+             for e in errors:
+</failure>
+			<system-out>            errors.append(&quot;Invalid severity.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #101" file="app/routes/bugs.py" line="56">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -53,7 +53,7 @@
+ 
+         if errors:
+             for e in errors:
+-                flash(e, &quot;danger&quot;)
++                flash(e, &quot;XXdangerXX&quot;)
+             return render_template(&quot;bugs/create.html&quot;,
+                                    severities=SEVERITIES,
+                                    tc=tc,
+</failure>
+			<system-out>                flash(e, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #102" file="app/routes/bugs.py" line="57">
+			<system-out>            return render_template(&quot;bugs/create.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #103" file="app/routes/bugs.py" line="64">
+			<system-out>            &quot;SELECT id FROM bugs WHERE title = ? AND module = ?&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #104" file="app/routes/bugs.py" line="66">
+			<system-out>        ).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #105" file="app/routes/bugs.py" line="69">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -66,7 +66,7 @@
+         ).fetchone()
+         if duplicate:
+             flash(
+-                f&quot;A bug with this title and module already exists &quot;
++                f&quot;XXA bug with this title and module already exists XX&quot;
+                 f&quot;(Bug #{duplicate['id']}).&quot;,
+                 &quot;danger&quot;
+             )
+</failure>
+			<system-out>                f&quot;A bug with this title and module already exists &quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #106" file="app/routes/bugs.py" line="70">
+			<system-out>                f&quot;(Bug #{duplicate['id']}).&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #107" file="app/routes/bugs.py" line="70">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -67,7 +67,7 @@
+         if duplicate:
+             flash(
+                 f&quot;A bug with this title and module already exists &quot;
+-                f&quot;(Bug #{duplicate['id']}).&quot;,
++                f&quot;XX(Bug #{duplicate['id']}).XX&quot;,
+                 &quot;danger&quot;
+             )
+             return render_template(&quot;bugs/create.html&quot;,
+</failure>
+			<system-out>                f&quot;(Bug #{duplicate['id']}).&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #108" file="app/routes/bugs.py" line="71">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -68,7 +68,7 @@
+             flash(
+                 f&quot;A bug with this title and module already exists &quot;
+                 f&quot;(Bug #{duplicate['id']}).&quot;,
+-                &quot;danger&quot;
++                &quot;XXdangerXX&quot;
+             )
+             return render_template(&quot;bugs/create.html&quot;,
+                                    severities=SEVERITIES,
+</failure>
+			<system-out>                &quot;danger&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #109" file="app/routes/bugs.py" line="73">
+			<system-out>            return render_template(&quot;bugs/create.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #110" file="app/routes/bugs.py" line="84">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -81,7 +81,7 @@
+             VALUES (?, ?, ?, ?, 'Open', ?)
+         &quot;&quot;&quot;, (title, module, description, severity, test_case_id))
+         db.commit()
+-        flash(&quot;Bug created successfully.&quot;, &quot;success&quot;)
++        flash(&quot;XXBug created successfully.XX&quot;, &quot;success&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+     return render_template(&quot;bugs/create.html&quot;,
+</failure>
+			<system-out>        flash(&quot;Bug created successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #111" file="app/routes/bugs.py" line="84">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -81,7 +81,7 @@
+             VALUES (?, ?, ?, ?, 'Open', ?)
+         &quot;&quot;&quot;, (title, module, description, severity, test_case_id))
+         db.commit()
+-        flash(&quot;Bug created successfully.&quot;, &quot;success&quot;)
++        flash(&quot;Bug created successfully.&quot;, &quot;XXsuccessXX&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+     return render_template(&quot;bugs/create.html&quot;,
+</failure>
+			<system-out>        flash(&quot;Bug created successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #112" file="app/routes/bugs.py" line="85">
+			<system-out>        return redirect(url_for(&quot;bugs.list_bugs&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #113" file="app/routes/bugs.py" line="87">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -84,7 +84,7 @@
+         flash(&quot;Bug created successfully.&quot;, &quot;success&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+-    return render_template(&quot;bugs/create.html&quot;,
++    return render_template(&quot;XXbugs/create.htmlXX&quot;,
+                            severities=SEVERITIES,
+                            tc=tc,
+                            test_case_id=test_case_id)
+</failure>
+			<system-out>    return render_template(&quot;bugs/create.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #114" file="app/routes/bugs.py" line="93">
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #115" file="app/routes/bugs.py" line="93">
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #116" file="app/routes/bugs.py" line="95">
+			<system-out>    db  = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #117" file="app/routes/bugs.py" line="101">
+			<system-out>    &quot;&quot;&quot;, (bug_id,)).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #118" file="app/routes/bugs.py" line="103">
+			<system-out>    if bug is None:</system-out>
+		</testcase>
+		<testcase name="Mutant #119" file="app/routes/bugs.py" line="104">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -101,7 +101,7 @@
+     &quot;&quot;&quot;, (bug_id,)).fetchone()
+ 
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;XXBug not found.XX&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+     allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #120" file="app/routes/bugs.py" line="104">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -101,7 +101,7 @@
+     &quot;&quot;&quot;, (bug_id,)).fetchone()
+ 
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;Bug not found.&quot;, &quot;XXdangerXX&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+     allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #121" file="app/routes/bugs.py" line="105">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -102,7 +102,7 @@
+ 
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+-        return redirect(url_for(&quot;bugs.list_bugs&quot;))
++        return redirect(url_for(&quot;XXbugs.list_bugsXX&quot;))
+ 
+     allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
+     return render_template(&quot;bugs/view.html&quot;,
+</failure>
+			<system-out>        return redirect(url_for(&quot;bugs.list_bugs&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #122" file="app/routes/bugs.py" line="107">
+			<system-out>    allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])</system-out>
+		</testcase>
+		<testcase name="Mutant #123" file="app/routes/bugs.py" line="107">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -104,7 +104,7 @@
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+-    allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
++    allowed = None
+     return render_template(&quot;bugs/view.html&quot;,
+                            bug=bug,
+                            allowed=allowed,
+</failure>
+			<system-out>    allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])</system-out>
+		</testcase>
+		<testcase name="Mutant #124" file="app/routes/bugs.py" line="108">
+			<system-out>    return render_template(&quot;bugs/view.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #125" file="app/routes/bugs.py" line="114">
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/update-status&quot;, methods=[&quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #126" file="app/routes/bugs.py" line="114">
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/update-status&quot;, methods=[&quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #127" file="app/routes/bugs.py" line="114">
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/update-status&quot;, methods=[&quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #128" file="app/routes/bugs.py" line="116">
+			<system-out>    db         = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #129" file="app/routes/bugs.py" line="117">
+			<system-out>    new_status = request.form[&quot;status&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #130" file="app/routes/bugs.py" line="117">
+			<system-out>    new_status = request.form[&quot;status&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #131" file="app/routes/bugs.py" line="119">
+			<system-out>        &quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)</system-out>
+		</testcase>
+		<testcase name="Mutant #132" file="app/routes/bugs.py" line="120">
+			<system-out>    ).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #133" file="app/routes/bugs.py" line="122">
+			<system-out>    if bug is None:</system-out>
+		</testcase>
+		<testcase name="Mutant #134" file="app/routes/bugs.py" line="123">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -120,7 +120,7 @@
+     ).fetchone()
+ 
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;XXBug not found.XX&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+     allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #135" file="app/routes/bugs.py" line="123">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -120,7 +120,7 @@
+     ).fetchone()
+ 
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;Bug not found.&quot;, &quot;XXdangerXX&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+ 
+     allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #136" file="app/routes/bugs.py" line="124">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -121,7 +121,7 @@
+ 
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+-        return redirect(url_for(&quot;bugs.list_bugs&quot;))
++        return redirect(url_for(&quot;XXbugs.list_bugsXX&quot;))
+ 
+     allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
+     if new_status not in allowed:
+</failure>
+			<system-out>        return redirect(url_for(&quot;bugs.list_bugs&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #137" file="app/routes/bugs.py" line="126">
+			<system-out>    allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])</system-out>
+		</testcase>
+		<testcase name="Mutant #138" file="app/routes/bugs.py" line="126">
+			<system-out>    allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])</system-out>
+		</testcase>
+		<testcase name="Mutant #139" file="app/routes/bugs.py" line="127">
+			<system-out>    if new_status not in allowed:</system-out>
+		</testcase>
+		<testcase name="Mutant #140" file="app/routes/bugs.py" line="129">
+			<system-out>            f&quot;Invalid transition: '{bug['status']}' → '{new_status}'.&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #141" file="app/routes/bugs.py" line="129">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -126,7 +126,7 @@
+     allowed = TRANSITIONS.get(bug[&quot;status&quot;], [])
+     if new_status not in allowed:
+         flash(
+-            f&quot;Invalid transition: '{bug['status']}' → '{new_status}'.&quot;,
++            f&quot;XXInvalid transition: '{bug['status']}' → '{new_status}'.XX&quot;,
+             &quot;danger&quot;
+         )
+         return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+</failure>
+			<system-out>            f&quot;Invalid transition: '{bug['status']}' → '{new_status}'.&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #142" file="app/routes/bugs.py" line="130">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -127,7 +127,7 @@
+     if new_status not in allowed:
+         flash(
+             f&quot;Invalid transition: '{bug['status']}' → '{new_status}'.&quot;,
+-            &quot;danger&quot;
++            &quot;XXdangerXX&quot;
+         )
+         return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+ 
+</failure>
+			<system-out>            &quot;danger&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #143" file="app/routes/bugs.py" line="132">
+			<system-out>        return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))</system-out>
+		</testcase>
+		<testcase name="Mutant #144" file="app/routes/bugs.py" line="135">
+			<system-out>        &quot;UPDATE bugs SET status = ? WHERE id = ?&quot;, (new_status, bug_id)</system-out>
+		</testcase>
+		<testcase name="Mutant #145" file="app/routes/bugs.py" line="138">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -135,7 +135,7 @@
+         &quot;UPDATE bugs SET status = ? WHERE id = ?&quot;, (new_status, bug_id)
+     )
+     db.commit()
+-    flash(f&quot;Status updated to '{new_status}'.&quot;, &quot;success&quot;)
++    flash(f&quot;XXStatus updated to '{new_status}'.XX&quot;, &quot;success&quot;)
+     return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+ 
+ 
+</failure>
+			<system-out>    flash(f&quot;Status updated to '{new_status}'.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #146" file="app/routes/bugs.py" line="138">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -135,7 +135,7 @@
+         &quot;UPDATE bugs SET status = ? WHERE id = ?&quot;, (new_status, bug_id)
+     )
+     db.commit()
+-    flash(f&quot;Status updated to '{new_status}'.&quot;, &quot;success&quot;)
++    flash(f&quot;Status updated to '{new_status}'.&quot;, &quot;XXsuccessXX&quot;)
+     return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+ 
+ 
+</failure>
+			<system-out>    flash(f&quot;Status updated to '{new_status}'.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #147" file="app/routes/bugs.py" line="139">
+			<system-out>    return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))</system-out>
+		</testcase>
+		<testcase name="Mutant #148" file="app/routes/bugs.py" line="142">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -139,7 +139,7 @@
+     return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+ 
+ 
+-@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
++@bp.route(&quot;XX/&lt;int:bug_id&gt;/editXX&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
+ def edit_bug(bug_id):
+     db = get_db()
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+</failure>
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #149" file="app/routes/bugs.py" line="142">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -139,7 +139,7 @@
+     return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+ 
+ 
+-@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
++@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;XXGETXX&quot;, &quot;POST&quot;])
+ def edit_bug(bug_id):
+     db = get_db()
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+</failure>
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #150" file="app/routes/bugs.py" line="142">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -139,7 +139,7 @@
+     return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+ 
+ 
+-@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
++@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;XXPOSTXX&quot;])
+ def edit_bug(bug_id):
+     db = get_db()
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+</failure>
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #151" file="app/routes/bugs.py" line="142">
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #152" file="app/routes/bugs.py" line="144">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -141,7 +141,7 @@
+ 
+ @bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
+ def edit_bug(bug_id):
+-    db = get_db()
++    db = None
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+</failure>
+			<system-out>    db = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #153" file="app/routes/bugs.py" line="145">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -142,7 +142,7 @@
+ @bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
+ def edit_bug(bug_id):
+     db = get_db()
+-    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
++    bug = db.execute(&quot;XXSELECT * FROM bugs WHERE id = ?XX&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+</failure>
+			<system-out>    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #154" file="app/routes/bugs.py" line="145">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -142,7 +142,7 @@
+ @bp.route(&quot;/&lt;int:bug_id&gt;/edit&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])
+ def edit_bug(bug_id):
+     db = get_db()
+-    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
++    bug = None
+     
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+</failure>
+			<system-out>    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #155" file="app/routes/bugs.py" line="147">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -144,7 +144,7 @@
+     db = get_db()
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+-    if bug is None:
++    if bug is not None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+     
+</failure>
+			<system-out>    if bug is None:</system-out>
+		</testcase>
+		<testcase name="Mutant #156" file="app/routes/bugs.py" line="148">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -145,7 +145,7 @@
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;XXBug not found.XX&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+     
+     if request.method == &quot;POST&quot;:
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #157" file="app/routes/bugs.py" line="148">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -145,7 +145,7 @@
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;Bug not found.&quot;, &quot;XXdangerXX&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+     
+     if request.method == &quot;POST&quot;:
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #158" file="app/routes/bugs.py" line="149">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -146,7 +146,7 @@
+     
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+-        return redirect(url_for(&quot;bugs.list_bugs&quot;))
++        return redirect(url_for(&quot;XXbugs.list_bugsXX&quot;))
+     
+     if request.method == &quot;POST&quot;:
+         title        = request.form[&quot;title&quot;].strip()
+</failure>
+			<system-out>        return redirect(url_for(&quot;bugs.list_bugs&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #159" file="app/routes/bugs.py" line="151">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #160" file="app/routes/bugs.py" line="151">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #161" file="app/routes/bugs.py" line="152">
+			<system-out>        title        = request.form[&quot;title&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #162" file="app/routes/bugs.py" line="152">
+			<system-out>        title        = request.form[&quot;title&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #163" file="app/routes/bugs.py" line="153">
+			<system-out>        module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #164" file="app/routes/bugs.py" line="153">
+			<system-out>        module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #165" file="app/routes/bugs.py" line="153">
+			<system-out>        module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #166" file="app/routes/bugs.py" line="154">
+			<system-out>        description  = request.form[&quot;description&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #167" file="app/routes/bugs.py" line="154">
+			<system-out>        description  = request.form[&quot;description&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #168" file="app/routes/bugs.py" line="155">
+			<system-out>        severity     = request.form[&quot;severity&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #169" file="app/routes/bugs.py" line="155">
+			<system-out>        severity     = request.form[&quot;severity&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #170" file="app/routes/bugs.py" line="156">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -153,7 +153,7 @@
+         module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()
+         description  = request.form[&quot;description&quot;].strip()
+         severity     = request.form[&quot;severity&quot;]
+-        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) or None
++        test_case_id = request.form.get(&quot;XXtest_case_idXX&quot;, type=int) or None
+         
+         # Validation
+         errors = []
+</failure>
+			<system-out>        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) or None</system-out>
+		</testcase>
+		<testcase name="Mutant #171" file="app/routes/bugs.py" line="156">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -153,7 +153,7 @@
+         module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()
+         description  = request.form[&quot;description&quot;].strip()
+         severity     = request.form[&quot;severity&quot;]
+-        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) or None
++        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) and None
+         
+         # Validation
+         errors = []
+</failure>
+			<system-out>        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) or None</system-out>
+		</testcase>
+		<testcase name="Mutant #172" file="app/routes/bugs.py" line="156">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -153,7 +153,7 @@
+         module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()
+         description  = request.form[&quot;description&quot;].strip()
+         severity     = request.form[&quot;severity&quot;]
+-        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) or None
++        test_case_id = None
+         
+         # Validation
+         errors = []
+</failure>
+			<system-out>        test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) or None</system-out>
+		</testcase>
+		<testcase name="Mutant #173" file="app/routes/bugs.py" line="159">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -156,7 +156,7 @@
+         test_case_id = request.form.get(&quot;test_case_id&quot;, type=int) or None
+         
+         # Validation
+-        errors = []
++        errors = None
+         if not title:
+             errors.append(&quot;Title is required.&quot;)
+         if severity not in SEVERITIES:
+</failure>
+			<system-out>        errors = []</system-out>
+		</testcase>
+		<testcase name="Mutant #174" file="app/routes/bugs.py" line="160">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -157,7 +157,7 @@
+         
+         # Validation
+         errors = []
+-        if not title:
++        if  title:
+             errors.append(&quot;Title is required.&quot;)
+         if severity not in SEVERITIES:
+             errors.append(&quot;Invalid severity.&quot;)
+</failure>
+			<system-out>        if not title:</system-out>
+		</testcase>
+		<testcase name="Mutant #175" file="app/routes/bugs.py" line="161">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -158,7 +158,7 @@
+         # Validation
+         errors = []
+         if not title:
+-            errors.append(&quot;Title is required.&quot;)
++            errors.append(&quot;XXTitle is required.XX&quot;)
+         if severity not in SEVERITIES:
+             errors.append(&quot;Invalid severity.&quot;)
+         
+</failure>
+			<system-out>            errors.append(&quot;Title is required.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #176" file="app/routes/bugs.py" line="162">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -159,7 +159,7 @@
+         errors = []
+         if not title:
+             errors.append(&quot;Title is required.&quot;)
+-        if severity not in SEVERITIES:
++        if severity  in SEVERITIES:
+             errors.append(&quot;Invalid severity.&quot;)
+         
+         if errors:
+</failure>
+			<system-out>        if severity not in SEVERITIES:</system-out>
+		</testcase>
+		<testcase name="Mutant #177" file="app/routes/bugs.py" line="163">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -160,7 +160,7 @@
+         if not title:
+             errors.append(&quot;Title is required.&quot;)
+         if severity not in SEVERITIES:
+-            errors.append(&quot;Invalid severity.&quot;)
++            errors.append(&quot;XXInvalid severity.XX&quot;)
+         
+         if errors:
+             for e in errors:
+</failure>
+			<system-out>            errors.append(&quot;Invalid severity.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #178" file="app/routes/bugs.py" line="167">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -164,7 +164,7 @@
+         
+         if errors:
+             for e in errors:
+-                flash(e, &quot;danger&quot;)
++                flash(e, &quot;XXdangerXX&quot;)
+             test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
+             return render_template(&quot;bugs/edit.html&quot;,
+                                    bug=bug,
+</failure>
+			<system-out>                flash(e, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #179" file="app/routes/bugs.py" line="168">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -165,7 +165,7 @@
+         if errors:
+             for e in errors:
+                 flash(e, &quot;danger&quot;)
+-            test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
++            test_cases = db.execute(&quot;XXSELECT id, title FROM test_cases ORDER BY titleXX&quot;).fetchall()
+             return render_template(&quot;bugs/edit.html&quot;,
+                                    bug=bug,
+                                    severities=SEVERITIES,
+</failure>
+			<system-out>            test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #180" file="app/routes/bugs.py" line="168">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -165,7 +165,7 @@
+         if errors:
+             for e in errors:
+                 flash(e, &quot;danger&quot;)
+-            test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
++            test_cases = None
+             return render_template(&quot;bugs/edit.html&quot;,
+                                    bug=bug,
+                                    severities=SEVERITIES,
+</failure>
+			<system-out>            test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #181" file="app/routes/bugs.py" line="169">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -166,7 +166,7 @@
+             for e in errors:
+                 flash(e, &quot;danger&quot;)
+             test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
+-            return render_template(&quot;bugs/edit.html&quot;,
++            return render_template(&quot;XXbugs/edit.htmlXX&quot;,
+                                    bug=bug,
+                                    severities=SEVERITIES,
+                                    test_cases=test_cases)
+</failure>
+			<system-out>            return render_template(&quot;bugs/edit.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #182" file="app/routes/bugs.py" line="181">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -178,7 +178,7 @@
+             WHERE id = ?
+         &quot;&quot;&quot;, (title, module, description, severity, test_case_id, bug_id))
+         db.commit()
+-        flash(&quot;Bug updated successfully.&quot;, &quot;success&quot;)
++        flash(&quot;XXBug updated successfully.XX&quot;, &quot;success&quot;)
+         return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+     
+     # GET request - show form
+</failure>
+			<system-out>        flash(&quot;Bug updated successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #183" file="app/routes/bugs.py" line="181">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -178,7 +178,7 @@
+             WHERE id = ?
+         &quot;&quot;&quot;, (title, module, description, severity, test_case_id, bug_id))
+         db.commit()
+-        flash(&quot;Bug updated successfully.&quot;, &quot;success&quot;)
++        flash(&quot;Bug updated successfully.&quot;, &quot;XXsuccessXX&quot;)
+         return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+     
+     # GET request - show form
+</failure>
+			<system-out>        flash(&quot;Bug updated successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #184" file="app/routes/bugs.py" line="182">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -179,7 +179,7 @@
+         &quot;&quot;&quot;, (title, module, description, severity, test_case_id, bug_id))
+         db.commit()
+         flash(&quot;Bug updated successfully.&quot;, &quot;success&quot;)
+-        return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
++        return redirect(url_for(&quot;XXbugs.view_bugXX&quot;, bug_id=bug_id))
+     
+     # GET request - show form
+     test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
+</failure>
+			<system-out>        return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))</system-out>
+		</testcase>
+		<testcase name="Mutant #185" file="app/routes/bugs.py" line="185">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -182,7 +182,7 @@
+         return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+     
+     # GET request - show form
+-    test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
++    test_cases = db.execute(&quot;XXSELECT id, title FROM test_cases ORDER BY titleXX&quot;).fetchall()
+     return render_template(&quot;bugs/edit.html&quot;,
+                            bug=bug,
+                            severities=SEVERITIES,
+</failure>
+			<system-out>    test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #186" file="app/routes/bugs.py" line="185">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -182,7 +182,7 @@
+         return redirect(url_for(&quot;bugs.view_bug&quot;, bug_id=bug_id))
+     
+     # GET request - show form
+-    test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
++    test_cases = None
+     return render_template(&quot;bugs/edit.html&quot;,
+                            bug=bug,
+                            severities=SEVERITIES,
+</failure>
+			<system-out>    test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #187" file="app/routes/bugs.py" line="186">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -183,7 +183,7 @@
+     
+     # GET request - show form
+     test_cases = db.execute(&quot;SELECT id, title FROM test_cases ORDER BY title&quot;).fetchall()
+-    return render_template(&quot;bugs/edit.html&quot;,
++    return render_template(&quot;XXbugs/edit.htmlXX&quot;,
+                            bug=bug,
+                            severities=SEVERITIES,
+                            test_cases=test_cases)
+</failure>
+			<system-out>    return render_template(&quot;bugs/edit.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #188" file="app/routes/bugs.py" line="192">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -189,7 +189,7 @@
+                            test_cases=test_cases)
+ 
+ 
+-@bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])
++@bp.route(&quot;XX/&lt;int:bug_id&gt;/deleteXX&quot;, methods=[&quot;POST&quot;])
+ def delete_bug(bug_id):
+     db = get_db()
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+</failure>
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #189" file="app/routes/bugs.py" line="192">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -189,7 +189,7 @@
+                            test_cases=test_cases)
+ 
+ 
+-@bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])
++@bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;XXPOSTXX&quot;])
+ def delete_bug(bug_id):
+     db = get_db()
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+</failure>
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #190" file="app/routes/bugs.py" line="192">
+			<system-out>@bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #191" file="app/routes/bugs.py" line="194">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -191,7 +191,7 @@
+ 
+ @bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])
+ def delete_bug(bug_id):
+-    db = get_db()
++    db = None
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+</failure>
+			<system-out>    db = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #192" file="app/routes/bugs.py" line="195">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -192,7 +192,7 @@
+ @bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])
+ def delete_bug(bug_id):
+     db = get_db()
+-    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
++    bug = db.execute(&quot;XXSELECT * FROM bugs WHERE id = ?XX&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+</failure>
+			<system-out>    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #193" file="app/routes/bugs.py" line="195">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -192,7 +192,7 @@
+ @bp.route(&quot;/&lt;int:bug_id&gt;/delete&quot;, methods=[&quot;POST&quot;])
+ def delete_bug(bug_id):
+     db = get_db()
+-    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
++    bug = None
+     
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+</failure>
+			<system-out>    bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #194" file="app/routes/bugs.py" line="197">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -194,7 +194,7 @@
+     db = get_db()
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+-    if bug is None:
++    if bug is not None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+     
+</failure>
+			<system-out>    if bug is None:</system-out>
+		</testcase>
+		<testcase name="Mutant #195" file="app/routes/bugs.py" line="198">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -195,7 +195,7 @@
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;XXBug not found.XX&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+     
+     db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #196" file="app/routes/bugs.py" line="198">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -195,7 +195,7 @@
+     bug = db.execute(&quot;SELECT * FROM bugs WHERE id = ?&quot;, (bug_id,)).fetchone()
+     
+     if bug is None:
+-        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
++        flash(&quot;Bug not found.&quot;, &quot;XXdangerXX&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+     
+     db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))
+</failure>
+			<system-out>        flash(&quot;Bug not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #197" file="app/routes/bugs.py" line="199">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -196,7 +196,7 @@
+     
+     if bug is None:
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+-        return redirect(url_for(&quot;bugs.list_bugs&quot;))
++        return redirect(url_for(&quot;XXbugs.list_bugsXX&quot;))
+     
+     db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))
+     db.commit()
+</failure>
+			<system-out>        return redirect(url_for(&quot;bugs.list_bugs&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #198" file="app/routes/bugs.py" line="201">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -198,7 +198,7 @@
+         flash(&quot;Bug not found.&quot;, &quot;danger&quot;)
+         return redirect(url_for(&quot;bugs.list_bugs&quot;))
+     
+-    db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))
++    db.execute(&quot;XXDELETE FROM bugs WHERE id = ?XX&quot;, (bug_id,))
+     db.commit()
+     flash(f&quot;Bug #{bug_id} deleted successfully.&quot;, &quot;success&quot;)
+     return redirect(url_for(&quot;bugs.list_bugs&quot;))
+</failure>
+			<system-out>    db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))</system-out>
+		</testcase>
+		<testcase name="Mutant #199" file="app/routes/bugs.py" line="203">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -200,5 +200,5 @@
+     
+     db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))
+     db.commit()
+-    flash(f&quot;Bug #{bug_id} deleted successfully.&quot;, &quot;success&quot;)
++    flash(f&quot;XXBug #{bug_id} deleted successfully.XX&quot;, &quot;success&quot;)
+     return redirect(url_for(&quot;bugs.list_bugs&quot;))
+</failure>
+			<system-out>    flash(f&quot;Bug #{bug_id} deleted successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #200" file="app/routes/bugs.py" line="203">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -200,5 +200,5 @@
+     
+     db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))
+     db.commit()
+-    flash(f&quot;Bug #{bug_id} deleted successfully.&quot;, &quot;success&quot;)
++    flash(f&quot;Bug #{bug_id} deleted successfully.&quot;, &quot;XXsuccessXX&quot;)
+     return redirect(url_for(&quot;bugs.list_bugs&quot;))
+</failure>
+			<system-out>    flash(f&quot;Bug #{bug_id} deleted successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #201" file="app/routes/bugs.py" line="204">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -201,4 +201,4 @@
+     db.execute(&quot;DELETE FROM bugs WHERE id = ?&quot;, (bug_id,))
+     db.commit()
+     flash(f&quot;Bug #{bug_id} deleted successfully.&quot;, &quot;success&quot;)
+-    return redirect(url_for(&quot;bugs.list_bugs&quot;))
++    return redirect(url_for(&quot;XXbugs.list_bugsXX&quot;))
+</failure>
+			<system-out>    return redirect(url_for(&quot;bugs.list_bugs&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #202" file="app/routes/reports.py" line="9">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -6,7 +6,7 @@
+ from flask import Blueprint, render_template
+ from app.db import get_db
+ 
+-bp = Blueprint(&quot;reports&quot;, __name__, url_prefix=&quot;/reports&quot;)
++bp = Blueprint(&quot;XXreportsXX&quot;, __name__, url_prefix=&quot;/reports&quot;)
+ 
+ 
+ def load_coverage_data():
+</failure>
+			<system-out>bp = Blueprint(&quot;reports&quot;, __name__, url_prefix=&quot;/reports&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #203" file="app/routes/reports.py" line="9">
+			<system-out>bp = Blueprint(&quot;reports&quot;, __name__, url_prefix=&quot;/reports&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #204" file="app/routes/reports.py" line="9">
+			<system-out>bp = Blueprint(&quot;reports&quot;, __name__, url_prefix=&quot;/reports&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #205" file="app/routes/reports.py" line="18">
+			<system-out>    base_dir  = os.path.dirname(os.path.abspath(__file__))</system-out>
+		</testcase>
+		<testcase name="Mutant #206" file="app/routes/reports.py" line="20">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -17,7 +17,7 @@
+     &quot;&quot;&quot;
+     base_dir  = os.path.dirname(os.path.abspath(__file__))
+     json_path = os.path.normpath(
+-        os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;coverage.json&quot;)
++        os.path.join(base_dir, &quot;XX..XX&quot;, &quot;..&quot;, &quot;coverage.json&quot;)
+     )
+ 
+     if not os.path.exists(json_path):
+</failure>
+			<system-out>        os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;coverage.json&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #207" file="app/routes/reports.py" line="20">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -17,7 +17,7 @@
+     &quot;&quot;&quot;
+     base_dir  = os.path.dirname(os.path.abspath(__file__))
+     json_path = os.path.normpath(
+-        os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;coverage.json&quot;)
++        os.path.join(base_dir, &quot;..&quot;, &quot;XX..XX&quot;, &quot;coverage.json&quot;)
+     )
+ 
+     if not os.path.exists(json_path):
+</failure>
+			<system-out>        os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;coverage.json&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #208" file="app/routes/reports.py" line="20">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -17,7 +17,7 @@
+     &quot;&quot;&quot;
+     base_dir  = os.path.dirname(os.path.abspath(__file__))
+     json_path = os.path.normpath(
+-        os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;coverage.json&quot;)
++        os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;XXcoverage.jsonXX&quot;)
+     )
+ 
+     if not os.path.exists(json_path):
+</failure>
+			<system-out>        os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;coverage.json&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #209" file="app/routes/reports.py" line="21">
+			<system-out>    )</system-out>
+		</testcase>
+		<testcase name="Mutant #210" file="app/routes/reports.py" line="23">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -20,7 +20,7 @@
+         os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;, &quot;coverage.json&quot;)
+     )
+ 
+-    if not os.path.exists(json_path):
++    if  os.path.exists(json_path):
+         return None, None
+ 
+     try:
+</failure>
+			<system-out>    if not os.path.exists(json_path):</system-out>
+		</testcase>
+		<testcase name="Mutant #211" file="app/routes/reports.py" line="28">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -25,7 +25,7 @@
+ 
+     try:
+         with open(json_path) as f:
+-            data = json.load(f)
++            data = None
+ 
+         modules       = []
+         total_covered = 0
+</failure>
+			<system-out>            data = json.load(f)</system-out>
+		</testcase>
+		<testcase name="Mutant #212" file="app/routes/reports.py" line="30">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -27,7 +27,7 @@
+         with open(json_path) as f:
+             data = json.load(f)
+ 
+-        modules       = []
++        modules       = None
+         total_covered = 0
+         total_stmts   = 0
+ 
+</failure>
+			<system-out>        modules       = []</system-out>
+		</testcase>
+		<testcase name="Mutant #213" file="app/routes/reports.py" line="31">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -28,7 +28,7 @@
+             data = json.load(f)
+ 
+         modules       = []
+-        total_covered = 0
++        total_covered = 1
+         total_stmts   = 0
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+</failure>
+			<system-out>        total_covered = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #214" file="app/routes/reports.py" line="31">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -28,7 +28,7 @@
+             data = json.load(f)
+ 
+         modules       = []
+-        total_covered = 0
++        total_covered = None
+         total_stmts   = 0
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+</failure>
+			<system-out>        total_covered = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #215" file="app/routes/reports.py" line="32">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -29,7 +29,7 @@
+ 
+         modules       = []
+         total_covered = 0
+-        total_stmts   = 0
++        total_stmts   = 1
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+</failure>
+			<system-out>        total_stmts   = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #216" file="app/routes/reports.py" line="32">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -29,7 +29,7 @@
+ 
+         modules       = []
+         total_covered = 0
+-        total_stmts   = 0
++        total_stmts   = None
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+</failure>
+			<system-out>        total_stmts   = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #217" file="app/routes/reports.py" line="34">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -31,7 +31,7 @@
+         total_covered = 0
+         total_stmts   = 0
+ 
+-        for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
++        for filepath, info in sorted(data.get(&quot;XXfilesXX&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+</failure>
+			<system-out>        for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):</system-out>
+		</testcase>
+		<testcase name="Mutant #218" file="app/routes/reports.py" line="35">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -32,7 +32,7 @@
+         total_stmts   = 0
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+-            clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
++            clean = filepath.replace(&quot;XX\\XX&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+</failure>
+			<system-out>            clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #219" file="app/routes/reports.py" line="35">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -32,7 +32,7 @@
+         total_stmts   = 0
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+-            clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
++            clean = filepath.replace(&quot;\\&quot;, &quot;XX/XX&quot;)
+             if &quot;app/&quot; in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+</failure>
+			<system-out>            clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #220" file="app/routes/reports.py" line="35">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -32,7 +32,7 @@
+         total_stmts   = 0
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+-            clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
++            clean = None
+             if &quot;app/&quot; in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+</failure>
+			<system-out>            clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #221" file="app/routes/reports.py" line="36">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -33,7 +33,7 @@
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+-            if &quot;app/&quot; in clean:
++            if &quot;XXapp/XX&quot; in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+</failure>
+			<system-out>            if &quot;app/&quot; in clean:</system-out>
+		</testcase>
+		<testcase name="Mutant #222" file="app/routes/reports.py" line="36">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -33,7 +33,7 @@
+ 
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+-            if &quot;app/&quot; in clean:
++            if &quot;app/&quot; not in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+</failure>
+			<system-out>            if &quot;app/&quot; in clean:</system-out>
+		</testcase>
+		<testcase name="Mutant #223" file="app/routes/reports.py" line="37">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -34,7 +34,7 @@
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+-                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
++                clean = &quot;XXapp/XX&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+</failure>
+			<system-out>                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]</system-out>
+		</testcase>
+		<testcase name="Mutant #224" file="app/routes/reports.py" line="37">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -34,7 +34,7 @@
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+-                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
++                clean = &quot;app/&quot; - clean.split(&quot;app/&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+</failure>
+			<system-out>                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]</system-out>
+		</testcase>
+		<testcase name="Mutant #225" file="app/routes/reports.py" line="37">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -34,7 +34,7 @@
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+-                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
++                clean = &quot;app/&quot; + clean.split(&quot;XXapp/XX&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+</failure>
+			<system-out>                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]</system-out>
+		</testcase>
+		<testcase name="Mutant #226" file="app/routes/reports.py" line="37">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -34,7 +34,7 @@
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+-                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
++                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[+1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+</failure>
+			<system-out>                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]</system-out>
+		</testcase>
+		<testcase name="Mutant #227" file="app/routes/reports.py" line="37">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -34,7 +34,7 @@
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+-                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
++                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-2]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+</failure>
+			<system-out>                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]</system-out>
+		</testcase>
+		<testcase name="Mutant #228" file="app/routes/reports.py" line="37">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -34,7 +34,7 @@
+         for filepath, info in sorted(data.get(&quot;files&quot;, {}).items()):
+             clean = filepath.replace(&quot;\\&quot;, &quot;/&quot;)
+             if &quot;app/&quot; in clean:
+-                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
++                clean = None
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+</failure>
+			<system-out>                clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]</system-out>
+		</testcase>
+		<testcase name="Mutant #229" file="app/routes/reports.py" line="39">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -36,7 +36,7 @@
+             if &quot;app/&quot; in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+-            summary  = info.get(&quot;summary&quot;, {})
++            summary  = info.get(&quot;XXsummaryXX&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+</failure>
+			<system-out>            summary  = info.get(&quot;summary&quot;, {})</system-out>
+		</testcase>
+		<testcase name="Mutant #230" file="app/routes/reports.py" line="39">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -36,7 +36,7 @@
+             if &quot;app/&quot; in clean:
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+-            summary  = info.get(&quot;summary&quot;, {})
++            summary  = None
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+</failure>
+			<system-out>            summary  = info.get(&quot;summary&quot;, {})</system-out>
+		</testcase>
+		<testcase name="Mutant #231" file="app/routes/reports.py" line="40">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -37,7 +37,7 @@
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+-            covered  = summary.get(&quot;covered_lines&quot;, 0)
++            covered  = summary.get(&quot;XXcovered_linesXX&quot;, 0)
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+</failure>
+			<system-out>            covered  = summary.get(&quot;covered_lines&quot;, 0)</system-out>
+		</testcase>
+		<testcase name="Mutant #232" file="app/routes/reports.py" line="40">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -37,7 +37,7 @@
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+-            covered  = summary.get(&quot;covered_lines&quot;, 0)
++            covered  = summary.get(&quot;covered_lines&quot;, 1)
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+</failure>
+			<system-out>            covered  = summary.get(&quot;covered_lines&quot;, 0)</system-out>
+		</testcase>
+		<testcase name="Mutant #233" file="app/routes/reports.py" line="40">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -37,7 +37,7 @@
+                 clean = &quot;app/&quot; + clean.split(&quot;app/&quot;)[-1]
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+-            covered  = summary.get(&quot;covered_lines&quot;, 0)
++            covered  = None
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+</failure>
+			<system-out>            covered  = summary.get(&quot;covered_lines&quot;, 0)</system-out>
+		</testcase>
+		<testcase name="Mutant #234" file="app/routes/reports.py" line="41">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -38,7 +38,7 @@
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+-            stmts    = summary.get(&quot;num_statements&quot;, 0)
++            stmts    = summary.get(&quot;XXnum_statementsXX&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+             total_covered += covered
+</failure>
+			<system-out>            stmts    = summary.get(&quot;num_statements&quot;, 0)</system-out>
+		</testcase>
+		<testcase name="Mutant #235" file="app/routes/reports.py" line="41">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -38,7 +38,7 @@
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+-            stmts    = summary.get(&quot;num_statements&quot;, 0)
++            stmts    = summary.get(&quot;num_statements&quot;, 1)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+             total_covered += covered
+</failure>
+			<system-out>            stmts    = summary.get(&quot;num_statements&quot;, 0)</system-out>
+		</testcase>
+		<testcase name="Mutant #236" file="app/routes/reports.py" line="41">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -38,7 +38,7 @@
+ 
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+-            stmts    = summary.get(&quot;num_statements&quot;, 0)
++            stmts    = None
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+             total_covered += covered
+</failure>
+			<system-out>            stmts    = summary.get(&quot;num_statements&quot;, 0)</system-out>
+		</testcase>
+		<testcase name="Mutant #237" file="app/routes/reports.py" line="42">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -39,7 +39,7 @@
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+-            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
++            pct      = round(summary.get(&quot;XXpercent_coveredXX&quot;, 0.0), 1)
+ 
+             total_covered += covered
+             total_stmts   += stmts
+</failure>
+			<system-out>            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #238" file="app/routes/reports.py" line="42">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -39,7 +39,7 @@
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+-            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
++            pct      = round(summary.get(&quot;percent_covered&quot;, 1.0), 1)
+ 
+             total_covered += covered
+             total_stmts   += stmts
+</failure>
+			<system-out>            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #239" file="app/routes/reports.py" line="42">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -39,7 +39,7 @@
+             summary  = info.get(&quot;summary&quot;, {})
+             covered  = summary.get(&quot;covered_lines&quot;, 0)
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+-            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
++            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 2)
+ 
+             total_covered += covered
+             total_stmts   += stmts
+</failure>
+			<system-out>            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #240" file="app/routes/reports.py" line="42">
+			<system-out>            pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #241" file="app/routes/reports.py" line="44">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -41,7 +41,7 @@
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+-            total_covered += covered
++            total_covered = covered
+             total_stmts   += stmts
+ 
+             modules.append({
+</failure>
+			<system-out>            total_covered += covered</system-out>
+		</testcase>
+		<testcase name="Mutant #242" file="app/routes/reports.py" line="44">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -41,7 +41,7 @@
+             stmts    = summary.get(&quot;num_statements&quot;, 0)
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+-            total_covered += covered
++            total_covered -= covered
+             total_stmts   += stmts
+ 
+             modules.append({
+</failure>
+			<system-out>            total_covered += covered</system-out>
+		</testcase>
+		<testcase name="Mutant #243" file="app/routes/reports.py" line="45">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -42,7 +42,7 @@
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+             total_covered += covered
+-            total_stmts   += stmts
++            total_stmts   = stmts
+ 
+             modules.append({
+                 &quot;name&quot;:    clean,
+</failure>
+			<system-out>            total_stmts   += stmts</system-out>
+		</testcase>
+		<testcase name="Mutant #244" file="app/routes/reports.py" line="45">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -42,7 +42,7 @@
+             pct      = round(summary.get(&quot;percent_covered&quot;, 0.0), 1)
+ 
+             total_covered += covered
+-            total_stmts   += stmts
++            total_stmts   -= stmts
+ 
+             modules.append({
+                 &quot;name&quot;:    clean,
+</failure>
+			<system-out>            total_stmts   += stmts</system-out>
+		</testcase>
+		<testcase name="Mutant #245" file="app/routes/reports.py" line="48">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -45,7 +45,7 @@
+             total_stmts   += stmts
+ 
+             modules.append({
+-                &quot;name&quot;:    clean,
++                &quot;XXnameXX&quot;:    clean,
+                 &quot;stmts&quot;:   stmts,
+                 &quot;covered&quot;: covered,
+                 &quot;percent&quot;: pct,
+</failure>
+			<system-out>                &quot;name&quot;:    clean,</system-out>
+		</testcase>
+		<testcase name="Mutant #246" file="app/routes/reports.py" line="49">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -46,7 +46,7 @@
+ 
+             modules.append({
+                 &quot;name&quot;:    clean,
+-                &quot;stmts&quot;:   stmts,
++                &quot;XXstmtsXX&quot;:   stmts,
+                 &quot;covered&quot;: covered,
+                 &quot;percent&quot;: pct,
+             })
+</failure>
+			<system-out>                &quot;stmts&quot;:   stmts,</system-out>
+		</testcase>
+		<testcase name="Mutant #247" file="app/routes/reports.py" line="50">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -47,7 +47,7 @@
+             modules.append({
+                 &quot;name&quot;:    clean,
+                 &quot;stmts&quot;:   stmts,
+-                &quot;covered&quot;: covered,
++                &quot;XXcoveredXX&quot;: covered,
+                 &quot;percent&quot;: pct,
+             })
+ 
+</failure>
+			<system-out>                &quot;covered&quot;: covered,</system-out>
+		</testcase>
+		<testcase name="Mutant #248" file="app/routes/reports.py" line="51">
+			<system-out>                &quot;percent&quot;: pct,</system-out>
+		</testcase>
+		<testcase name="Mutant #249" file="app/routes/reports.py" line="55">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -52,7 +52,7 @@
+             })
+ 
+         overall = round(
+-            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,
++            (total_covered * total_stmts * 100) if total_stmts &gt; 0 else 0.0,
+             1
+         )
+         return modules, overall
+</failure>
+			<system-out>            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #250" file="app/routes/reports.py" line="55">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -52,7 +52,7 @@
+             })
+ 
+         overall = round(
+-            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,
++            (total_covered / total_stmts / 100) if total_stmts &gt; 0 else 0.0,
+             1
+         )
+         return modules, overall
+</failure>
+			<system-out>            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #251" file="app/routes/reports.py" line="55">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -52,7 +52,7 @@
+             })
+ 
+         overall = round(
+-            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,
++            (total_covered / total_stmts * 101) if total_stmts &gt; 0 else 0.0,
+             1
+         )
+         return modules, overall
+</failure>
+			<system-out>            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #252" file="app/routes/reports.py" line="55">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -52,7 +52,7 @@
+             })
+ 
+         overall = round(
+-            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,
++            (total_covered / total_stmts * 100) if total_stmts &gt;= 0 else 0.0,
+             1
+         )
+         return modules, overall
+</failure>
+			<system-out>            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #253" file="app/routes/reports.py" line="55">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -52,7 +52,7 @@
+             })
+ 
+         overall = round(
+-            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,
++            (total_covered / total_stmts * 100) if total_stmts &gt; 1 else 0.0,
+             1
+         )
+         return modules, overall
+</failure>
+			<system-out>            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #254" file="app/routes/reports.py" line="55">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -52,7 +52,7 @@
+             })
+ 
+         overall = round(
+-            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,
++            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 1.0,
+             1
+         )
+         return modules, overall
+</failure>
+			<system-out>            (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #255" file="app/routes/reports.py" line="56">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -53,7 +53,7 @@
+ 
+         overall = round(
+             (total_covered / total_stmts * 100) if total_stmts &gt; 0 else 0.0,
+-            1
++            2
+         )
+         return modules, overall
+ 
+</failure>
+			<system-out>            1</system-out>
+		</testcase>
+		<testcase name="Mutant #256" file="app/routes/reports.py" line="57">
+			<system-out>        )</system-out>
+		</testcase>
+		<testcase name="Mutant #257" file="app/routes/reports.py" line="71">
+			<system-out>    base_dir   = os.path.dirname(os.path.abspath(__file__))</system-out>
+		</testcase>
+		<testcase name="Mutant #258" file="app/routes/reports.py" line="72">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -69,7 +69,7 @@
+     Returns None if cache does not exist yet.
+     &quot;&quot;&quot;
+     base_dir   = os.path.dirname(os.path.abspath(__file__))
+-    proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;))
++    proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;XX..XX&quot;, &quot;..&quot;))
+     cache_path = os.path.join(proj_dir, &quot;.mutmut-cache&quot;)
+ 
+     if not os.path.exists(cache_path):
+</failure>
+			<system-out>    proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #259" file="app/routes/reports.py" line="72">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -69,7 +69,7 @@
+     Returns None if cache does not exist yet.
+     &quot;&quot;&quot;
+     base_dir   = os.path.dirname(os.path.abspath(__file__))
+-    proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;))
++    proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;XX..XX&quot;))
+     cache_path = os.path.join(proj_dir, &quot;.mutmut-cache&quot;)
+ 
+     if not os.path.exists(cache_path):
+</failure>
+			<system-out>    proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #260" file="app/routes/reports.py" line="72">
+			<system-out>    proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #261" file="app/routes/reports.py" line="73">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -70,7 +70,7 @@
+     &quot;&quot;&quot;
+     base_dir   = os.path.dirname(os.path.abspath(__file__))
+     proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;))
+-    cache_path = os.path.join(proj_dir, &quot;.mutmut-cache&quot;)
++    cache_path = os.path.join(proj_dir, &quot;XX.mutmut-cacheXX&quot;)
+ 
+     if not os.path.exists(cache_path):
+         return None
+</failure>
+			<system-out>    cache_path = os.path.join(proj_dir, &quot;.mutmut-cache&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #262" file="app/routes/reports.py" line="73">
+			<system-out>    cache_path = os.path.join(proj_dir, &quot;.mutmut-cache&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #263" file="app/routes/reports.py" line="75">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -72,7 +72,7 @@
+     proj_dir   = os.path.normpath(os.path.join(base_dir, &quot;..&quot;, &quot;..&quot;))
+     cache_path = os.path.join(proj_dir, &quot;.mutmut-cache&quot;)
+ 
+-    if not os.path.exists(cache_path):
++    if  os.path.exists(cache_path):
+         return None
+ 
+     try:
+</failure>
+			<system-out>    if not os.path.exists(cache_path):</system-out>
+		</testcase>
+		<testcase name="Mutant #264" file="app/routes/reports.py" line="79">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -76,7 +76,7 @@
+         return None
+ 
+     try:
+-        conn = sqlite3.connect(cache_path)
++        conn = None
+         conn.row_factory = sqlite3.Row
+         cur  = conn.cursor()
+ 
+</failure>
+			<system-out>        conn = sqlite3.connect(cache_path)</system-out>
+		</testcase>
+		<testcase name="Mutant #265" file="app/routes/reports.py" line="80">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -77,7 +77,7 @@
+ 
+     try:
+         conn = sqlite3.connect(cache_path)
+-        conn.row_factory = sqlite3.Row
++        conn.row_factory = None
+         cur  = conn.cursor()
+ 
+         # mutmut stores results in a table called &quot;Mutant&quot;
+</failure>
+			<system-out>        conn.row_factory = sqlite3.Row</system-out>
+		</testcase>
+		<testcase name="Mutant #266" file="app/routes/reports.py" line="81">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -78,7 +78,7 @@
+     try:
+         conn = sqlite3.connect(cache_path)
+         conn.row_factory = sqlite3.Row
+-        cur  = conn.cursor()
++        cur  = None
+ 
+         # mutmut stores results in a table called &quot;Mutant&quot;
+         # status values: &quot;killed&quot;, &quot;survived&quot;, &quot;skipped&quot;, &quot;timeout&quot;
+</failure>
+			<system-out>        cur  = conn.cursor()</system-out>
+		</testcase>
+		<testcase name="Mutant #267" file="app/routes/reports.py" line="90">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -87,7 +87,7 @@
+             FROM Mutant
+             GROUP BY status
+         &quot;&quot;&quot;)
+-        rows = cur.fetchall()
++        rows = None
+         conn.close()
+ 
+         killed   = 0
+</failure>
+			<system-out>        rows = cur.fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #268" file="app/routes/reports.py" line="93">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -90,7 +90,7 @@
+         rows = cur.fetchall()
+         conn.close()
+ 
+-        killed   = 0
++        killed   = 1
+         survived = 0
+         skipped  = 0
+         timeout  = 0
+</failure>
+			<system-out>        killed   = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #269" file="app/routes/reports.py" line="93">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -90,7 +90,7 @@
+         rows = cur.fetchall()
+         conn.close()
+ 
+-        killed   = 0
++        killed   = None
+         survived = 0
+         skipped  = 0
+         timeout  = 0
+</failure>
+			<system-out>        killed   = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #270" file="app/routes/reports.py" line="94">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -91,7 +91,7 @@
+         conn.close()
+ 
+         killed   = 0
+-        survived = 0
++        survived = 1
+         skipped  = 0
+         timeout  = 0
+ 
+</failure>
+			<system-out>        survived = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #271" file="app/routes/reports.py" line="94">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -91,7 +91,7 @@
+         conn.close()
+ 
+         killed   = 0
+-        survived = 0
++        survived = None
+         skipped  = 0
+         timeout  = 0
+ 
+</failure>
+			<system-out>        survived = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #272" file="app/routes/reports.py" line="95">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -92,7 +92,7 @@
+ 
+         killed   = 0
+         survived = 0
+-        skipped  = 0
++        skipped  = 1
+         timeout  = 0
+ 
+         for row in rows:
+</failure>
+			<system-out>        skipped  = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #273" file="app/routes/reports.py" line="95">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -92,7 +92,7 @@
+ 
+         killed   = 0
+         survived = 0
+-        skipped  = 0
++        skipped  = None
+         timeout  = 0
+ 
+         for row in rows:
+</failure>
+			<system-out>        skipped  = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #274" file="app/routes/reports.py" line="96">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -93,7 +93,7 @@
+         killed   = 0
+         survived = 0
+         skipped  = 0
+-        timeout  = 0
++        timeout  = 1
+ 
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+</failure>
+			<system-out>        timeout  = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #275" file="app/routes/reports.py" line="96">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -93,7 +93,7 @@
+         killed   = 0
+         survived = 0
+         skipped  = 0
+-        timeout  = 0
++        timeout  = None
+ 
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+</failure>
+			<system-out>        timeout  = 0</system-out>
+		</testcase>
+		<testcase name="Mutant #276" file="app/routes/reports.py" line="99">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -96,7 +96,7 @@
+         timeout  = 0
+ 
+         for row in rows:
+-            status = (row[&quot;status&quot;] or &quot;&quot;).lower()
++            status = (row[&quot;XXstatusXX&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+</failure>
+			<system-out>            status = (row[&quot;status&quot;] or &quot;&quot;).lower()</system-out>
+		</testcase>
+		<testcase name="Mutant #277" file="app/routes/reports.py" line="99">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -96,7 +96,7 @@
+         timeout  = 0
+ 
+         for row in rows:
+-            status = (row[&quot;status&quot;] or &quot;&quot;).lower()
++            status = (row[&quot;status&quot;] or &quot;XXXX&quot;).lower()
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+</failure>
+			<system-out>            status = (row[&quot;status&quot;] or &quot;&quot;).lower()</system-out>
+		</testcase>
+		<testcase name="Mutant #278" file="app/routes/reports.py" line="99">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -96,7 +96,7 @@
+         timeout  = 0
+ 
+         for row in rows:
+-            status = (row[&quot;status&quot;] or &quot;&quot;).lower()
++            status = (row[&quot;status&quot;] and &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+</failure>
+			<system-out>            status = (row[&quot;status&quot;] or &quot;&quot;).lower()</system-out>
+		</testcase>
+		<testcase name="Mutant #279" file="app/routes/reports.py" line="99">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -96,7 +96,7 @@
+         timeout  = 0
+ 
+         for row in rows:
+-            status = (row[&quot;status&quot;] or &quot;&quot;).lower()
++            status = None
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+</failure>
+			<system-out>            status = (row[&quot;status&quot;] or &quot;&quot;).lower()</system-out>
+		</testcase>
+		<testcase name="Mutant #280" file="app/routes/reports.py" line="100">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -97,7 +97,7 @@
+ 
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+-            count  = row[&quot;count&quot;]
++            count  = row[&quot;XXcountXX&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+</failure>
+			<system-out>            count  = row[&quot;count&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #281" file="app/routes/reports.py" line="100">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -97,7 +97,7 @@
+ 
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+-            count  = row[&quot;count&quot;]
++            count  = None
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+</failure>
+			<system-out>            count  = row[&quot;count&quot;]</system-out>
+		</testcase>
+		<testcase name="Mutant #282" file="app/routes/reports.py" line="101">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -98,7 +98,7 @@
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+-            if &quot;killed&quot; in status or &quot;ok&quot; in status:
++            if &quot;XXkilledXX&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+</failure>
+			<system-out>            if &quot;killed&quot; in status or &quot;ok&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #283" file="app/routes/reports.py" line="101">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -98,7 +98,7 @@
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+-            if &quot;killed&quot; in status or &quot;ok&quot; in status:
++            if &quot;killed&quot; not in status or &quot;ok&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+</failure>
+			<system-out>            if &quot;killed&quot; in status or &quot;ok&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #284" file="app/routes/reports.py" line="101">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -98,7 +98,7 @@
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+-            if &quot;killed&quot; in status or &quot;ok&quot; in status:
++            if &quot;killed&quot; in status or &quot;XXokXX&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+</failure>
+			<system-out>            if &quot;killed&quot; in status or &quot;ok&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #285" file="app/routes/reports.py" line="101">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -98,7 +98,7 @@
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+-            if &quot;killed&quot; in status or &quot;ok&quot; in status:
++            if &quot;killed&quot; in status or &quot;ok&quot; not in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+</failure>
+			<system-out>            if &quot;killed&quot; in status or &quot;ok&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #286" file="app/routes/reports.py" line="101">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -98,7 +98,7 @@
+         for row in rows:
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+-            if &quot;killed&quot; in status or &quot;ok&quot; in status:
++            if &quot;killed&quot; in status and &quot;ok&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+</failure>
+			<system-out>            if &quot;killed&quot; in status or &quot;ok&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #287" file="app/routes/reports.py" line="102">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -99,7 +99,7 @@
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+-                killed += count
++                killed = count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+</failure>
+			<system-out>                killed += count</system-out>
+		</testcase>
+		<testcase name="Mutant #288" file="app/routes/reports.py" line="102">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -99,7 +99,7 @@
+             status = (row[&quot;status&quot;] or &quot;&quot;).lower()
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+-                killed += count
++                killed -= count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+</failure>
+			<system-out>                killed += count</system-out>
+		</testcase>
+		<testcase name="Mutant #289" file="app/routes/reports.py" line="103">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -100,7 +100,7 @@
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+-            elif &quot;survived&quot; in status or &quot;bad&quot; in status:
++            elif &quot;XXsurvivedXX&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+</failure>
+			<system-out>            elif &quot;survived&quot; in status or &quot;bad&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #290" file="app/routes/reports.py" line="103">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -100,7 +100,7 @@
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+-            elif &quot;survived&quot; in status or &quot;bad&quot; in status:
++            elif &quot;survived&quot; not in status or &quot;bad&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+</failure>
+			<system-out>            elif &quot;survived&quot; in status or &quot;bad&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #291" file="app/routes/reports.py" line="103">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -100,7 +100,7 @@
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+-            elif &quot;survived&quot; in status or &quot;bad&quot; in status:
++            elif &quot;survived&quot; in status or &quot;XXbadXX&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+</failure>
+			<system-out>            elif &quot;survived&quot; in status or &quot;bad&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #292" file="app/routes/reports.py" line="103">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -100,7 +100,7 @@
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+-            elif &quot;survived&quot; in status or &quot;bad&quot; in status:
++            elif &quot;survived&quot; in status or &quot;bad&quot; not in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+</failure>
+			<system-out>            elif &quot;survived&quot; in status or &quot;bad&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #293" file="app/routes/reports.py" line="103">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -100,7 +100,7 @@
+             count  = row[&quot;count&quot;]
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+-            elif &quot;survived&quot; in status or &quot;bad&quot; in status:
++            elif &quot;survived&quot; in status and &quot;bad&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+</failure>
+			<system-out>            elif &quot;survived&quot; in status or &quot;bad&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #294" file="app/routes/reports.py" line="104">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -101,7 +101,7 @@
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+-                survived += count
++                survived = count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+             elif &quot;timeout&quot; in status:
+</failure>
+			<system-out>                survived += count</system-out>
+		</testcase>
+		<testcase name="Mutant #295" file="app/routes/reports.py" line="104">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -101,7 +101,7 @@
+             if &quot;killed&quot; in status or &quot;ok&quot; in status:
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+-                survived += count
++                survived -= count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+             elif &quot;timeout&quot; in status:
+</failure>
+			<system-out>                survived += count</system-out>
+		</testcase>
+		<testcase name="Mutant #296" file="app/routes/reports.py" line="105">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -102,7 +102,7 @@
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+-            elif &quot;skipped&quot; in status:
++            elif &quot;XXskippedXX&quot; in status:
+                 skipped += count
+             elif &quot;timeout&quot; in status:
+                 timeout += count
+</failure>
+			<system-out>            elif &quot;skipped&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #297" file="app/routes/reports.py" line="105">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -102,7 +102,7 @@
+                 killed += count
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+-            elif &quot;skipped&quot; in status:
++            elif &quot;skipped&quot; not in status:
+                 skipped += count
+             elif &quot;timeout&quot; in status:
+                 timeout += count
+</failure>
+			<system-out>            elif &quot;skipped&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #298" file="app/routes/reports.py" line="106">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -103,7 +103,7 @@
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+-                skipped += count
++                skipped = count
+             elif &quot;timeout&quot; in status:
+                 timeout += count
+ 
+</failure>
+			<system-out>                skipped += count</system-out>
+		</testcase>
+		<testcase name="Mutant #299" file="app/routes/reports.py" line="106">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -103,7 +103,7 @@
+             elif &quot;survived&quot; in status or &quot;bad&quot; in status:
+                 survived += count
+             elif &quot;skipped&quot; in status:
+-                skipped += count
++                skipped -= count
+             elif &quot;timeout&quot; in status:
+                 timeout += count
+ 
+</failure>
+			<system-out>                skipped += count</system-out>
+		</testcase>
+		<testcase name="Mutant #300" file="app/routes/reports.py" line="107">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -104,7 +104,7 @@
+                 survived += count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+-            elif &quot;timeout&quot; in status:
++            elif &quot;XXtimeoutXX&quot; in status:
+                 timeout += count
+ 
+         total = killed + survived
+</failure>
+			<system-out>            elif &quot;timeout&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #301" file="app/routes/reports.py" line="107">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -104,7 +104,7 @@
+                 survived += count
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+-            elif &quot;timeout&quot; in status:
++            elif &quot;timeout&quot; not in status:
+                 timeout += count
+ 
+         total = killed + survived
+</failure>
+			<system-out>            elif &quot;timeout&quot; in status:</system-out>
+		</testcase>
+		<testcase name="Mutant #302" file="app/routes/reports.py" line="108">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -105,7 +105,7 @@
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+             elif &quot;timeout&quot; in status:
+-                timeout += count
++                timeout = count
+ 
+         total = killed + survived
+         score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
+</failure>
+			<system-out>                timeout += count</system-out>
+		</testcase>
+		<testcase name="Mutant #303" file="app/routes/reports.py" line="108">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -105,7 +105,7 @@
+             elif &quot;skipped&quot; in status:
+                 skipped += count
+             elif &quot;timeout&quot; in status:
+-                timeout += count
++                timeout -= count
+ 
+         total = killed + survived
+         score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
+</failure>
+			<system-out>                timeout += count</system-out>
+		</testcase>
+		<testcase name="Mutant #304" file="app/routes/reports.py" line="110">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -107,7 +107,7 @@
+             elif &quot;timeout&quot; in status:
+                 timeout += count
+ 
+-        total = killed + survived
++        total = killed - survived
+         score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+</failure>
+			<system-out>        total = killed + survived</system-out>
+		</testcase>
+		<testcase name="Mutant #305" file="app/routes/reports.py" line="110">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -107,7 +107,7 @@
+             elif &quot;timeout&quot; in status:
+                 timeout += count
+ 
+-        total = killed + survived
++        total = None
+         score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+</failure>
+			<system-out>        total = killed + survived</system-out>
+		</testcase>
+		<testcase name="Mutant #306" file="app/routes/reports.py" line="111">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -108,7 +108,7 @@
+                 timeout += count
+ 
+         total = killed + survived
+-        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
++        score = round((killed * total * 100) if total &gt; 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+</failure>
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #307" file="app/routes/reports.py" line="111">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -108,7 +108,7 @@
+                 timeout += count
+ 
+         total = killed + survived
+-        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
++        score = round((killed / total / 100) if total &gt; 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+</failure>
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #308" file="app/routes/reports.py" line="111">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -108,7 +108,7 @@
+                 timeout += count
+ 
+         total = killed + survived
+-        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
++        score = round((killed / total * 101) if total &gt; 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+</failure>
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #309" file="app/routes/reports.py" line="111">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -108,7 +108,7 @@
+                 timeout += count
+ 
+         total = killed + survived
+-        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
++        score = round((killed / total * 100) if total &gt;= 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+</failure>
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #310" file="app/routes/reports.py" line="111">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -108,7 +108,7 @@
+                 timeout += count
+ 
+         total = killed + survived
+-        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
++        score = round((killed / total * 100) if total &gt; 1 else 0.0, 1)
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+</failure>
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #311" file="app/routes/reports.py" line="111">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -108,7 +108,7 @@
+                 timeout += count
+ 
+         total = killed + survived
+-        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
++        score = round((killed / total * 100) if total &gt; 0 else 1.0, 1)
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+</failure>
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #312" file="app/routes/reports.py" line="111">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -108,7 +108,7 @@
+                 timeout += count
+ 
+         total = killed + survived
+-        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
++        score = round((killed / total * 100) if total &gt; 0 else 0.0, 2)
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+</failure>
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #313" file="app/routes/reports.py" line="111">
+			<system-out>        score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)</system-out>
+		</testcase>
+		<testcase name="Mutant #314" file="app/routes/reports.py" line="114">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -111,7 +111,7 @@
+         score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+-        report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
++        report_path = os.path.join(proj_dir, &quot;XXmutation_report.txtXX&quot;)
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+</failure>
+			<system-out>        report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #315" file="app/routes/reports.py" line="114">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -111,7 +111,7 @@
+         score = round((killed / total * 100) if total &gt; 0 else 0.0, 1)
+ 
+         # Save a clean report txt
+-        report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
++        report_path = None
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+</failure>
+			<system-out>        report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #316" file="app/routes/reports.py" line="115">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -112,7 +112,7 @@
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+-        with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
++        with open(report_path, &quot;XXwXX&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+</failure>
+			<system-out>        with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:</system-out>
+		</testcase>
+		<testcase name="Mutant #317" file="app/routes/reports.py" line="115">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -112,7 +112,7 @@
+ 
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+-        with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
++        with open(report_path, &quot;w&quot;, encoding=&quot;XXutf-8XX&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+</failure>
+			<system-out>        with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:</system-out>
+		</testcase>
+		<testcase name="Mutant #318" file="app/routes/reports.py" line="116">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -113,7 +113,7 @@
+         # Save a clean report txt
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+-            f.write(&quot;MUTATION TESTING REPORT\n&quot;)
++            f.write(&quot;XXMUTATION TESTING REPORT\nXX&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+</failure>
+			<system-out>            f.write(&quot;MUTATION TESTING REPORT\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #319" file="app/routes/reports.py" line="117">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -114,7 +114,7 @@
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;XX=XX&quot; * 40 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #320" file="app/routes/reports.py" line="117">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -114,7 +114,7 @@
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; / 40 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #321" file="app/routes/reports.py" line="117">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -114,7 +114,7 @@
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; * 41 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #322" file="app/routes/reports.py" line="117">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -114,7 +114,7 @@
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; * 40 - &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #323" file="app/routes/reports.py" line="117">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -114,7 +114,7 @@
+         report_path = os.path.join(proj_dir, &quot;mutation_report.txt&quot;)
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; * 40 + &quot;XX\nXX&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #324" file="app/routes/reports.py" line="118">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -115,7 +115,7 @@
+         with open(report_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+-            f.write(f&quot;Total Mutants : {total}\n&quot;)
++            f.write(f&quot;XXTotal Mutants : {total}\nXX&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+</failure>
+			<system-out>            f.write(f&quot;Total Mutants : {total}\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #325" file="app/routes/reports.py" line="119">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -116,7 +116,7 @@
+             f.write(&quot;MUTATION TESTING REPORT\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+-            f.write(f&quot;Killed        : {killed}\n&quot;)
++            f.write(f&quot;XXKilled        : {killed}\nXX&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+</failure>
+			<system-out>            f.write(f&quot;Killed        : {killed}\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #326" file="app/routes/reports.py" line="120">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -117,7 +117,7 @@
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+-            f.write(f&quot;Survived      : {survived}\n&quot;)
++            f.write(f&quot;XXSurvived      : {survived}\nXX&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+</failure>
+			<system-out>            f.write(f&quot;Survived      : {survived}\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #327" file="app/routes/reports.py" line="121">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -118,7 +118,7 @@
+             f.write(f&quot;Total Mutants : {total}\n&quot;)
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+-            f.write(f&quot;Skipped       : {skipped}\n&quot;)
++            f.write(f&quot;XXSkipped       : {skipped}\nXX&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+ 
+</failure>
+			<system-out>            f.write(f&quot;Skipped       : {skipped}\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #328" file="app/routes/reports.py" line="122">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -119,7 +119,7 @@
+             f.write(f&quot;Killed        : {killed}\n&quot;)
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+-            f.write(f&quot;Mutation Score: {score}%\n&quot;)
++            f.write(f&quot;XXMutation Score: {score}%\nXX&quot;)
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+ 
+         return {
+</failure>
+			<system-out>            f.write(f&quot;Mutation Score: {score}%\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #329" file="app/routes/reports.py" line="123">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -120,7 +120,7 @@
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;XX=XX&quot; * 40 + &quot;\n&quot;)
+ 
+         return {
+             &quot;total&quot;:    total,
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #330" file="app/routes/reports.py" line="123">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -120,7 +120,7 @@
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; / 40 + &quot;\n&quot;)
+ 
+         return {
+             &quot;total&quot;:    total,
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #331" file="app/routes/reports.py" line="123">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -120,7 +120,7 @@
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; * 41 + &quot;\n&quot;)
+ 
+         return {
+             &quot;total&quot;:    total,
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #332" file="app/routes/reports.py" line="123">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -120,7 +120,7 @@
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; * 40 - &quot;\n&quot;)
+ 
+         return {
+             &quot;total&quot;:    total,
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #333" file="app/routes/reports.py" line="123">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -120,7 +120,7 @@
+             f.write(f&quot;Survived      : {survived}\n&quot;)
+             f.write(f&quot;Skipped       : {skipped}\n&quot;)
+             f.write(f&quot;Mutation Score: {score}%\n&quot;)
+-            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
++            f.write(&quot;=&quot; * 40 + &quot;XX\nXX&quot;)
+ 
+         return {
+             &quot;total&quot;:    total,
+</failure>
+			<system-out>            f.write(&quot;=&quot; * 40 + &quot;\n&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #334" file="app/routes/reports.py" line="126">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -123,7 +123,7 @@
+             f.write(&quot;=&quot; * 40 + &quot;\n&quot;)
+ 
+         return {
+-            &quot;total&quot;:    total,
++            &quot;XXtotalXX&quot;:    total,
+             &quot;killed&quot;:   killed,
+             &quot;survived&quot;: survived,
+             &quot;skipped&quot;:  skipped,
+</failure>
+			<system-out>            &quot;total&quot;:    total,</system-out>
+		</testcase>
+		<testcase name="Mutant #335" file="app/routes/reports.py" line="127">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -124,7 +124,7 @@
+ 
+         return {
+             &quot;total&quot;:    total,
+-            &quot;killed&quot;:   killed,
++            &quot;XXkilledXX&quot;:   killed,
+             &quot;survived&quot;: survived,
+             &quot;skipped&quot;:  skipped,
+             &quot;score&quot;:    score,
+</failure>
+			<system-out>            &quot;killed&quot;:   killed,</system-out>
+		</testcase>
+		<testcase name="Mutant #336" file="app/routes/reports.py" line="128">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -125,7 +125,7 @@
+         return {
+             &quot;total&quot;:    total,
+             &quot;killed&quot;:   killed,
+-            &quot;survived&quot;: survived,
++            &quot;XXsurvivedXX&quot;: survived,
+             &quot;skipped&quot;:  skipped,
+             &quot;score&quot;:    score,
+         }
+</failure>
+			<system-out>            &quot;survived&quot;: survived,</system-out>
+		</testcase>
+		<testcase name="Mutant #337" file="app/routes/reports.py" line="129">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -126,7 +126,7 @@
+             &quot;total&quot;:    total,
+             &quot;killed&quot;:   killed,
+             &quot;survived&quot;: survived,
+-            &quot;skipped&quot;:  skipped,
++            &quot;XXskippedXX&quot;:  skipped,
+             &quot;score&quot;:    score,
+         }
+ 
+</failure>
+			<system-out>            &quot;skipped&quot;:  skipped,</system-out>
+		</testcase>
+		<testcase name="Mutant #338" file="app/routes/reports.py" line="130">
+			<system-out>            &quot;score&quot;:    score,</system-out>
+		</testcase>
+		<testcase name="Mutant #339" file="app/routes/reports.py" line="135">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -132,7 +132,7 @@
+ 
+     except Exception as e:
+         return {
+-            &quot;total&quot;:    0,
++            &quot;XXtotalXX&quot;:    0,
+             &quot;killed&quot;:   0,
+             &quot;survived&quot;: 0,
+             &quot;skipped&quot;:  0,
+</failure>
+			<system-out>            &quot;total&quot;:    0,</system-out>
+		</testcase>
+		<testcase name="Mutant #340" file="app/routes/reports.py" line="135">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -132,7 +132,7 @@
+ 
+     except Exception as e:
+         return {
+-            &quot;total&quot;:    0,
++            &quot;total&quot;:    1,
+             &quot;killed&quot;:   0,
+             &quot;survived&quot;: 0,
+             &quot;skipped&quot;:  0,
+</failure>
+			<system-out>            &quot;total&quot;:    0,</system-out>
+		</testcase>
+		<testcase name="Mutant #341" file="app/routes/reports.py" line="136">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -133,7 +133,7 @@
+     except Exception as e:
+         return {
+             &quot;total&quot;:    0,
+-            &quot;killed&quot;:   0,
++            &quot;XXkilledXX&quot;:   0,
+             &quot;survived&quot;: 0,
+             &quot;skipped&quot;:  0,
+             &quot;score&quot;:    0.0,
+</failure>
+			<system-out>            &quot;killed&quot;:   0,</system-out>
+		</testcase>
+		<testcase name="Mutant #342" file="app/routes/reports.py" line="136">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -133,7 +133,7 @@
+     except Exception as e:
+         return {
+             &quot;total&quot;:    0,
+-            &quot;killed&quot;:   0,
++            &quot;killed&quot;:   1,
+             &quot;survived&quot;: 0,
+             &quot;skipped&quot;:  0,
+             &quot;score&quot;:    0.0,
+</failure>
+			<system-out>            &quot;killed&quot;:   0,</system-out>
+		</testcase>
+		<testcase name="Mutant #343" file="app/routes/reports.py" line="137">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -134,7 +134,7 @@
+         return {
+             &quot;total&quot;:    0,
+             &quot;killed&quot;:   0,
+-            &quot;survived&quot;: 0,
++            &quot;XXsurvivedXX&quot;: 0,
+             &quot;skipped&quot;:  0,
+             &quot;score&quot;:    0.0,
+         }
+</failure>
+			<system-out>            &quot;survived&quot;: 0,</system-out>
+		</testcase>
+		<testcase name="Mutant #344" file="app/routes/reports.py" line="137">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -134,7 +134,7 @@
+         return {
+             &quot;total&quot;:    0,
+             &quot;killed&quot;:   0,
+-            &quot;survived&quot;: 0,
++            &quot;survived&quot;: 1,
+             &quot;skipped&quot;:  0,
+             &quot;score&quot;:    0.0,
+         }
+</failure>
+			<system-out>            &quot;survived&quot;: 0,</system-out>
+		</testcase>
+		<testcase name="Mutant #345" file="app/routes/reports.py" line="138">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -135,7 +135,7 @@
+             &quot;total&quot;:    0,
+             &quot;killed&quot;:   0,
+             &quot;survived&quot;: 0,
+-            &quot;skipped&quot;:  0,
++            &quot;XXskippedXX&quot;:  0,
+             &quot;score&quot;:    0.0,
+         }
+ 
+</failure>
+			<system-out>            &quot;skipped&quot;:  0,</system-out>
+		</testcase>
+		<testcase name="Mutant #346" file="app/routes/reports.py" line="138">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -135,7 +135,7 @@
+             &quot;total&quot;:    0,
+             &quot;killed&quot;:   0,
+             &quot;survived&quot;: 0,
+-            &quot;skipped&quot;:  0,
++            &quot;skipped&quot;:  1,
+             &quot;score&quot;:    0.0,
+         }
+ 
+</failure>
+			<system-out>            &quot;skipped&quot;:  0,</system-out>
+		</testcase>
+		<testcase name="Mutant #347" file="app/routes/reports.py" line="139">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -136,7 +136,7 @@
+             &quot;killed&quot;:   0,
+             &quot;survived&quot;: 0,
+             &quot;skipped&quot;:  0,
+-            &quot;score&quot;:    0.0,
++            &quot;XXscoreXX&quot;:    0.0,
+         }
+ 
+ 
+</failure>
+			<system-out>            &quot;score&quot;:    0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #348" file="app/routes/reports.py" line="139">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -136,7 +136,7 @@
+             &quot;killed&quot;:   0,
+             &quot;survived&quot;: 0,
+             &quot;skipped&quot;:  0,
+-            &quot;score&quot;:    0.0,
++            &quot;score&quot;:    1.0,
+         }
+ 
+ 
+</failure>
+			<system-out>            &quot;score&quot;:    0.0,</system-out>
+		</testcase>
+		<testcase name="Mutant #349" file="app/routes/reports.py" line="143">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #350" file="app/routes/reports.py" line="143">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #351" file="app/routes/reports.py" line="145">
+			<system-out>    db = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #352" file="app/routes/reports.py" line="149">
+			<system-out>        &quot;SELECT COUNT(*) FROM bugs&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #353" file="app/routes/reports.py" line="150">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #354" file="app/routes/reports.py" line="150">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #355" file="app/routes/reports.py" line="153">
+			<system-out>        &quot;SELECT COUNT(*) FROM bugs WHERE status = 'Open'&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #356" file="app/routes/reports.py" line="154">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #357" file="app/routes/reports.py" line="154">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #358" file="app/routes/reports.py" line="157">
+			<system-out>        &quot;SELECT COUNT(*) FROM bugs WHERE status = 'In Progress'&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #359" file="app/routes/reports.py" line="158">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #360" file="app/routes/reports.py" line="158">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #361" file="app/routes/reports.py" line="161">
+			<system-out>        &quot;SELECT COUNT(*) FROM bugs WHERE status = 'Resolved'&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #362" file="app/routes/reports.py" line="162">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #363" file="app/routes/reports.py" line="162">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #364" file="app/routes/reports.py" line="165">
+			<system-out>        &quot;SELECT COUNT(*) FROM bugs WHERE status = 'Closed'&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #365" file="app/routes/reports.py" line="166">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #366" file="app/routes/reports.py" line="166">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #367" file="app/routes/reports.py" line="172">
+			<system-out>    &quot;&quot;&quot;).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #368" file="app/routes/reports.py" line="175">
+			<system-out>        &quot;SELECT COUNT(*) FROM test_executions&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #369" file="app/routes/reports.py" line="176">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #370" file="app/routes/reports.py" line="176">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #371" file="app/routes/reports.py" line="179">
+			<system-out>        &quot;SELECT COUNT(*) FROM test_executions WHERE result = 'Pass'&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #372" file="app/routes/reports.py" line="180">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #373" file="app/routes/reports.py" line="180">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #374" file="app/routes/reports.py" line="183">
+			<system-out>        &quot;SELECT COUNT(*) FROM test_executions WHERE result = 'Fail'&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #375" file="app/routes/reports.py" line="184">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #376" file="app/routes/reports.py" line="184">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #377" file="app/routes/reports.py" line="187">
+			<system-out>        &quot;SELECT COUNT(*) FROM test_cases&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #378" file="app/routes/reports.py" line="188">
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #379" file="app/routes/reports.py" line="188">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -183,9 +183,7 @@
+         &quot;SELECT COUNT(*) FROM test_executions WHERE result = 'Fail'&quot;
+     ).fetchone()[0]
+ 
+-    total_test_cases = db.execute(
+-        &quot;SELECT COUNT(*) FROM test_cases&quot;
+-    ).fetchone()[0]
++    total_test_cases = None
+ 
+     # --- Load coverage + mutation data ---
+     coverage_modules, coverage_total = load_coverage_data()
+</failure>
+			<system-out>    ).fetchone()[0]</system-out>
+		</testcase>
+		<testcase name="Mutant #380" file="app/routes/reports.py" line="191">
+			<system-out>    coverage_modules, coverage_total = load_coverage_data()</system-out>
+		</testcase>
+		<testcase name="Mutant #381" file="app/routes/reports.py" line="192">
+			<failure type="failure" message="bad_survived">--- app/routes/reports.py
++++ app/routes/reports.py
+@@ -189,7 +189,7 @@
+ 
+     # --- Load coverage + mutation data ---
+     coverage_modules, coverage_total = load_coverage_data()
+-    mutation_data                    = load_mutation_data()
++    mutation_data                    = None
+ 
+     return render_template(&quot;reports/dashboard.html&quot;,
+                            total_bugs=total_bugs,
+</failure>
+			<system-out>    mutation_data                    = load_mutation_data()</system-out>
+		</testcase>
+		<testcase name="Mutant #382" file="app/routes/reports.py" line="194">
+			<system-out>    return render_template(&quot;reports/dashboard.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #383" file="app/routes/test_cases.py" line="4">
+			<system-out>bp = Blueprint(&quot;test_cases&quot;, __name__, url_prefix=&quot;/test-cases&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #384" file="app/routes/test_cases.py" line="4">
+			<system-out>bp = Blueprint(&quot;test_cases&quot;, __name__, url_prefix=&quot;/test-cases&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #385" file="app/routes/test_cases.py" line="4">
+			<system-out>bp = Blueprint(&quot;test_cases&quot;, __name__, url_prefix=&quot;/test-cases&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #386" file="app/routes/test_cases.py" line="7">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #387" file="app/routes/test_cases.py" line="7">
+			<system-out>@bp.route(&quot;/&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #388" file="app/routes/test_cases.py" line="9">
+			<system-out>    db    = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #389" file="app/routes/test_cases.py" line="11">
+			<system-out>        &quot;SELECT * FROM test_cases ORDER BY created_at DESC&quot;</system-out>
+		</testcase>
+		<testcase name="Mutant #390" file="app/routes/test_cases.py" line="12">
+			<system-out>    ).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #391" file="app/routes/test_cases.py" line="13">
+			<system-out>    return render_template(&quot;test_cases/list.html&quot;, cases=cases)</system-out>
+		</testcase>
+		<testcase name="Mutant #392" file="app/routes/test_cases.py" line="16">
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #393" file="app/routes/test_cases.py" line="16">
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #394" file="app/routes/test_cases.py" line="16">
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #395" file="app/routes/test_cases.py" line="16">
+			<system-out>@bp.route(&quot;/create&quot;, methods=[&quot;GET&quot;, &quot;POST&quot;])</system-out>
+		</testcase>
+		<testcase name="Mutant #396" file="app/routes/test_cases.py" line="18">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #397" file="app/routes/test_cases.py" line="18">
+			<system-out>    if request.method == &quot;POST&quot;:</system-out>
+		</testcase>
+		<testcase name="Mutant #398" file="app/routes/test_cases.py" line="19">
+			<system-out>        title       = request.form[&quot;title&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #399" file="app/routes/test_cases.py" line="19">
+			<system-out>        title       = request.form[&quot;title&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #400" file="app/routes/test_cases.py" line="20">
+			<system-out>        description = request.form[&quot;description&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #401" file="app/routes/test_cases.py" line="20">
+			<system-out>        description = request.form[&quot;description&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #402" file="app/routes/test_cases.py" line="21">
+			<system-out>        expected    = request.form[&quot;expected&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #403" file="app/routes/test_cases.py" line="21">
+			<system-out>        expected    = request.form[&quot;expected&quot;].strip()</system-out>
+		</testcase>
+		<testcase name="Mutant #404" file="app/routes/test_cases.py" line="23">
+			<system-out>        errors = []</system-out>
+		</testcase>
+		<testcase name="Mutant #405" file="app/routes/test_cases.py" line="24">
+			<system-out>        if not title:</system-out>
+		</testcase>
+		<testcase name="Mutant #406" file="app/routes/test_cases.py" line="25">
+			<system-out>            errors.append(&quot;Title is required.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #407" file="app/routes/test_cases.py" line="26">
+			<system-out>        if not expected:</system-out>
+		</testcase>
+		<testcase name="Mutant #408" file="app/routes/test_cases.py" line="27">
+			<system-out>            errors.append(&quot;Expected result is required.&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #409" file="app/routes/test_cases.py" line="31">
+			<system-out>                flash(e, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #410" file="app/routes/test_cases.py" line="32">
+			<system-out>            return render_template(&quot;test_cases/create.html&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #411" file="app/routes/test_cases.py" line="34">
+			<system-out>        db = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #412" file="app/routes/test_cases.py" line="36">
+			<system-out>            &quot;INSERT INTO test_cases (title, description, expected) VALUES (?, ?, ?)&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #413" file="app/routes/test_cases.py" line="40">
+			<system-out>        flash(&quot;Test case created successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #414" file="app/routes/test_cases.py" line="40">
+			<system-out>        flash(&quot;Test case created successfully.&quot;, &quot;success&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #415" file="app/routes/test_cases.py" line="41">
+			<system-out>        return redirect(url_for(&quot;test_cases.list_test_cases&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #416" file="app/routes/test_cases.py" line="43">
+			<system-out>    return render_template(&quot;test_cases/create.html&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #417" file="app/routes/test_cases.py" line="46">
+			<system-out>@bp.route(&quot;/&lt;int:tc_id&gt;&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #418" file="app/routes/test_cases.py" line="46">
+			<system-out>@bp.route(&quot;/&lt;int:tc_id&gt;&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #419" file="app/routes/test_cases.py" line="48">
+			<system-out>    db = get_db()</system-out>
+		</testcase>
+		<testcase name="Mutant #420" file="app/routes/test_cases.py" line="52">
+			<system-out>        &quot;SELECT * FROM test_cases WHERE id = ?&quot;, (tc_id,)</system-out>
+		</testcase>
+		<testcase name="Mutant #421" file="app/routes/test_cases.py" line="53">
+			<system-out>    ).fetchone()</system-out>
+		</testcase>
+		<testcase name="Mutant #422" file="app/routes/test_cases.py" line="55">
+			<system-out>    if tc is None:</system-out>
+		</testcase>
+		<testcase name="Mutant #423" file="app/routes/test_cases.py" line="56">
+			<system-out>        flash(&quot;Test case not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #424" file="app/routes/test_cases.py" line="56">
+			<system-out>        flash(&quot;Test case not found.&quot;, &quot;danger&quot;)</system-out>
+		</testcase>
+		<testcase name="Mutant #425" file="app/routes/test_cases.py" line="57">
+			<system-out>        return redirect(url_for(&quot;test_cases.list_test_cases&quot;))</system-out>
+		</testcase>
+		<testcase name="Mutant #426" file="app/routes/test_cases.py" line="61">
+			<system-out>        &quot;SELECT * FROM bugs WHERE test_case_id = ? ORDER BY created_at DESC&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #427" file="app/routes/test_cases.py" line="63">
+			<system-out>    ).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #428" file="app/routes/test_cases.py" line="70">
+			<system-out>    &quot;&quot;&quot;, (tc_id,)).fetchall()</system-out>
+		</testcase>
+		<testcase name="Mutant #429" file="app/routes/test_cases.py" line="72">
+			<system-out>    return render_template(&quot;test_cases/view.html&quot;,</system-out>
+		</testcase>
+		<testcase name="Mutant #430" file="app/routes/bugs.py" line="45">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -42,7 +42,7 @@
+         module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()
+         description  = request.form[&quot;description&quot;].strip()
+         severity     = request.form[&quot;severity&quot;]
+-        test_case_id = request.form.get(&quot;XXtest_case_idXX&quot;, type=int)
++        test_case_id = request.form.get(&quot;XXXXtest_case_idXXXX&quot;, type=int)
+ 
+         # --- Validation ---
+         errors = []
+</failure>
+			<system-out>        test_case_id = request.form.get(&quot;XXtest_case_idXX&quot;, type=int)</system-out>
+		</testcase>
+		<testcase name="Mutant #431" file="app/routes/bugs.py" line="45">
+			<failure type="failure" message="bad_survived">--- app/routes/bugs.py
++++ app/routes/bugs.py
+@@ -42,7 +42,7 @@
+         module       = request.form.get(&quot;module&quot;, &quot;&quot;).strip()
+         description  = request.form[&quot;description&quot;].strip()
+         severity     = request.form[&quot;severity&quot;]
+-        test_case_id = request.form.get(&quot;XXtest_case_idXX&quot;, type=int)
++        test_case_id = None
+ 
+         # --- Validation ---
+         errors = []
+</failure>
+			<system-out>        test_case_id = request.form.get(&quot;XXtest_case_idXX&quot;, type=int)</system-out>
+		</testcase>
+	</testsuite>
+</testsuites>
+

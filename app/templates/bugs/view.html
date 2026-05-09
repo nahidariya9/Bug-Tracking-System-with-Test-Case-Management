@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header d-flex justify-content-between align-items-center">
+    <h2><i class="bi bi-bug-fill"></i> Bug #{{ bug.id }}: {{ bug.title }}</h2>
+    <div class="d-flex gap-2">
+        <a href="{{ url_for('bugs.edit_bug', bug_id=bug.id) }}" class="btn btn-warning">
+            <i class="bi bi-pencil-square"></i> Edit
+        </a>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            <i class="bi bi-trash"></i> Delete
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <table class="table table-borderless mb-0">
+                    <tr>
+                        <th width="180" class="text-muted">Status</th>
+                        <td>
+                            <span class="badge fs-6 bg-{{
+                                'primary' if bug.status == 'Open' else
+                                'info text-dark' if bug.status == 'In Progress' else
+                                'success' if bug.status == 'Resolved' else
+                                'secondary'
+                            }}">{{ bug.status }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted">Severity</th>
+                        <td>
+                            <span class="badge bg-{{
+                                'secondary' if bug.severity == 'Low' else
+                                'warning text-dark' if bug.severity == 'Medium' else
+                                'danger' if bug.severity == 'High' else
+                                'dark'
+                            }}">
+                                <i class="bi bi-{{
+                                    'info-circle' if bug.severity == 'Low' else
+                                    'exclamation-circle' if bug.severity == 'Medium' else
+                                    'exclamation-triangle' if bug.severity == 'High' else
+                                    'x-octagon'
+                                }}"></i>
+                                {{ bug.severity }}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted">Module</th>
+                        <td>{{ bug.module or '—' }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted">Description</th>
+                        <td>{{ bug.description or '—' }}</td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted">
+                            <i class="bi bi-link-45deg"></i> Linked Test Case
+                        </th>
+                        <td>
+                            {% if bug.tc_title %}
+                                <a href="{{ url_for('test_cases.view_test_case', tc_id=bug.test_case_id) }}" 
+                                   class="text-decoration-none">
+                                    <i class="bi bi-clipboard-check"></i> {{ bug.tc_title }}
+                                </a>
+                            {% else %}
+                                <span class="text-muted">No test case linked</span>
+                                <a href="{{ url_for('bugs.edit_bug', bug_id=bug.id) }}" 
+                                   class="btn btn-sm btn-outline-primary ms-2">
+                                    <i class="bi bi-link-45deg"></i> Link Now
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="text-muted">Created</th>
+                        <td>{{ bug.created_at }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white;">
+                <h5 class="mb-0"><i class="bi bi-arrow-repeat"></i> Update Status</h5>
+            </div>
+            <div class="card-body">
+                {% if allowed %}
+                    <form method="POST" action="{{ url_for('bugs.update_status', bug_id=bug.id) }}">
+                        <select name="status" class="form-select mb-3">
+                            {% for s in allowed %}
+                                <option value="{{ s }}">{{ s }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="btn btn-primary w-100">
+                            <i class="bi bi-check-circle"></i> Update Status
+                        </button>
+                    </form>
+                {% else %}
+                    <div class="alert alert-info mb-0">
+                        <i class="bi bi-info-circle"></i> No further transitions available.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a href="{{ url_for('bugs.list_bugs') }}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Back to Bugs
+    </a>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">
+                    <i class="bi bi-exclamation-triangle"></i> Confirm Delete
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this bug?</p>
+                <p class="fw-bold">Bug #{{ bug.id }}: {{ bug.title }}</p>
+                <p class="text-danger">
+                    <i class="bi bi-exclamation-circle"></i> This action cannot be undone!
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Cancel
+                </button>
+                <form method="POST" action="{{ url_for('bugs.delete_bug', bug_id=bug.id) }}" class="d-inline">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="bi bi-trash"></i> Delete Bug
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

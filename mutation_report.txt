@@ -1,0 +1,8 @@
+MUTATION TESTING REPORT
+========================================
+Total Mutants : 370
+Killed        : 146
+Survived      : 224
+Skipped       : 47
+Mutation Score: 39.5%
+========================================

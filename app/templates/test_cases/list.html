@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header d-flex justify-content-between align-items-center">
+    <h2><i class="bi bi-clipboard-check-fill"></i> Test Cases</h2>
+    <a href="{{ url_for('test_cases.create_test_case') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> New Test Case
+    </a>
+</div>
+
+{% if cases %}
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    <th style="width: 60px;">#</th>
+                    <th>Title</th>
+                    <th>Expected Result</th>
+                    <th style="width: 120px;">Created</th>
+                    <th style="width: 100px;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for tc in cases %}
+                <tr>
+                    <td class="fw-bold text-muted">#{{ tc.id }}</td>
+                    <td class="fw-semibold">{{ tc.title }}</td>
+                    <td class="text-muted">{{ tc.expected }}</td>
+                    <td class="text-muted">{{ tc.created_at[:10] }}</td>
+                    <td>
+                        <a href="{{ url_for('test_cases.view_test_case', tc_id=tc.id) }}"
+                           class="btn btn-sm btn-outline-primary">
+                            <i class="bi bi-eye"></i> View
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+    <div class="alert alert-info">
+        <i class="bi bi-info-circle"></i> No test cases yet.
+    </div>
+{% endif %}
+{% endblock %}

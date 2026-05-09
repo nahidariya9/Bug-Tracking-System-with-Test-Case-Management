@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>▶ Execution #{{ execution.id }}</h2>
+<hr>
+<table class="table table-bordered">
+    <tr>
+        <th width="200">Test Case</th>
+        <td>
+            <a href="{{ url_for('test_cases.view_test_case', tc_id=execution.test_case_id) }}">
+                {{ execution.tc_title }}
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <th>Expected Result</th>
+        <td>{{ execution.tc_expected }}</td>
+    </tr>
+    <tr>
+        <th>Result</th>
+        <td>
+            <span class="badge fs-6 bg-{{ 'success' if execution.result == 'Pass' else 'danger' }}">
+                {{ execution.result }}
+            </span>
+        </td>
+    </tr>
+    <tr><th>Notes</th><td>{{ execution.notes or '—' }}</td></tr>
+    <tr><th>Executed At</th><td>{{ execution.executed_at }}</td></tr>
+</table>
+
+{% if execution.result == 'Fail' %}
+<div class="alert alert-danger mt-3">
+    ⚠️ This test failed.
+    <a href="{{ url_for('bugs.create_bug', test_case_id=execution.test_case_id) }}"
+       class="btn btn-danger btn-sm ms-3">🐛 Create Bug from this Failure</a>
+</div>
+{% endif %}
+
+<a href="{{ url_for('executions.list_executions') }}" class="btn btn-secondary mt-2">← Back</a>
+{% endblock %}

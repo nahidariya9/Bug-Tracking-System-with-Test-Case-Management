@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>📋 Test Case #{{ tc.id }}: {{ tc.title }}</h2>
+<hr>
+
+{# Test Case Details #}
+<table class="table table-bordered">
+    <tr><th width="200">Title</th><td>{{ tc.title }}</td></tr>
+    <tr><th>Description</th><td>{{ tc.description or '—' }}</td></tr>
+    <tr><th>Expected Result</th><td>{{ tc.expected }}</td></tr>
+    <tr><th>Created</th><td>{{ tc.created_at }}</td></tr>
+</table>
+
+{# Execution History #}
+<h4 class="mt-4">▶ Execution History</h4>
+{% if executions %}
+<table class="table table-bordered table-sm">
+    <thead class="table-secondary">
+        <tr>
+            <th>#</th>
+            <th>Result</th>
+            <th>Notes</th>
+            <th>Executed At</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for ex in executions %}
+        <tr>
+            <td>{{ ex.id }}</td>
+            <td>
+                <span class="badge bg-{{ 'success' if ex.result == 'Pass' else 'danger' }}">
+                    {{ ex.result }}
+                </span>
+            </td>
+            <td>{{ ex.notes or '—' }}</td>
+            <td>{{ ex.executed_at[:16] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <div class="alert alert-info">No executions recorded for this test case.</div>
+{% endif %}
+
+{# Linked Bugs — Traceability #}
+<h4 class="mt-4">🐛 Linked Bugs</h4>
+{% if bugs %}
+<table class="table table-bordered table-sm">
+    <thead class="table-secondary">
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Module</th>
+            <th>Severity</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for bug in bugs %}
+        <tr>
+            <td>{{ bug.id }}</td>
+            <td>{{ bug.title }}</td>
+            <td>{{ bug.module or '—' }}</td>
+            <td>
+                <span class="badge bg-{{
+                    'secondary' if bug.severity == 'Low' else
+                    'warning text-dark' if bug.severity == 'Medium' else
+                    'danger' if bug.severity == 'High' else
+                    'dark'
+                }}">{{ bug.severity }}</span>
+            </td>
+            <td>
+                <span class="badge bg-{{
+                    'primary' if bug.status == 'Open' else
+                    'info text-dark' if bug.status == 'In Progress' else
+                    'success' if bug.status == 'Resolved' else
+                    'secondary'
+                }}">{{ bug.status }}</span>
+            </td>
+            <td>
+                <a href="{{ url_for('bugs.view_bug', bug_id=bug.id) }}"
+                   class="btn btn-sm btn-outline-primary">View</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <div class="alert alert-info">No bugs linked to this test case.</div>
+{% endif %}
+
+<div class="mt-3">
+    <a href="{{ url_for('executions.run_execution') }}?test_case_id={{ tc.id }}" 
+       class="btn btn-success">▶ Execute This Test</a>
+    <a href="{{ url_for('test_cases.list_test_cases') }}" class="btn btn-secondary ms-2">← Back</a>
+</div>
+{% endblock %}

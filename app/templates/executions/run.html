@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>▶ Run Test Execution</h2>
+<hr>
+<form method="POST">
+    <div class="mb-3">
+        <label class="form-label">Test Case <span class="text-danger">*</span></label>
+        <select name="test_case_id" class="form-select" required>
+            <option value="">-- Select Test Case --</option>
+            {% for tc in cases %}
+                <option value="{{ tc.id }}" {% if request.args.get('test_case_id')|int == tc.id %}selected{% endif %}>
+                    {{ tc.title }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Result <span class="text-danger">*</span></label>
+        <div class="d-flex gap-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio"
+                       name="result" id="pass" value="Pass" required>
+                <label class="form-check-label text-success fw-bold" for="pass">
+                    ✅ Pass
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio"
+                       name="result" id="fail" value="Fail">
+                <label class="form-check-label text-danger fw-bold" for="fail">
+                    ❌ Fail
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Notes</label>
+        <textarea name="notes" class="form-control" rows="3"
+                  placeholder="Optional: what went wrong or observations..."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Record Execution</button>
+    <a href="{{ url_for('executions.list_executions') }}"
+       class="btn btn-secondary ms-2">Cancel</a>
+</form>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>🐛 Report New Bug</h2>
+<hr>
+<form method="POST">
+
+    {% if test_case_id %}
+        <input type="hidden" name="test_case_id" value="{{ test_case_id }}">
+        <div class="alert alert-warning">
+            🔗 Linked to Test Case:
+            <strong>{{ tc.title if tc else '#' ~ test_case_id }}</strong>
+        </div>
+    {% endif %}
+
+    <div class="mb-3">
+        <label class="form-label">Title <span class="text-danger">*</span></label>
+        <input type="text" name="title" class="form-control"
+               placeholder="Short bug summary" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Module</label>
+        <input type="text" name="module" class="form-control"
+               placeholder="e.g. Login, Dashboard, API...">
+        <div class="form-text">Used to detect duplicate bugs.</div>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea name="description" class="form-control" rows="3"
+                  placeholder="Steps to reproduce, actual vs expected..."></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Severity <span class="text-danger">*</span></label>
+        <select name="severity" class="form-select" required>
+            <option value="">-- Select Severity --</option>
+            {% for s in severities %}
+                <option value="{{ s }}">{{ s }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-danger">Submit Bug</button>
+    <a href="{{ url_for('bugs.list_bugs') }}" class="btn btn-secondary ms-2">Cancel</a>
+
+</form>
+{% endblock %}

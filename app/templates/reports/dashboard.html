@@ -1,0 +1,332 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h2><i class="bi bi-graph-up"></i> Reports Dashboard</h2>
+</div>
+
+{# ── Row 1: Summary Cards ── #}
+<div class="row g-4 mb-4">
+    <div class="col-md-3">
+        <div class="stat-card" style="border-top: 4px solid var(--danger-color);">
+            <i class="bi bi-bug icon" style="color: var(--danger-color);"></i>
+            <p class="text-uppercase">Total Bugs</p>
+            <h3>{{ total_bugs }}</h3>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="border-top: 4px solid var(--primary-color);">
+            <i class="bi bi-clipboard-check icon" style="color: var(--primary-color);"></i>
+            <p class="text-uppercase">Test Cases</p>
+            <h3>{{ total_test_cases }}</h3>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="border-top: 4px solid var(--success-color);">
+            <i class="bi bi-play-circle icon" style="color: var(--success-color);"></i>
+            <p class="text-uppercase">Executions</p>
+            <h3>{{ total_executions }}</h3>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="stat-card" style="border-top: 4px solid var(--danger-color);">
+            <i class="bi bi-x-circle icon" style="color: var(--danger-color);"></i>
+            <p class="text-uppercase">Failed Tests</p>
+            <h3>{{ fail_count }}</h3>
+        </div>
+    </div>
+</div>
+
+{# ── Row 2: Bug Status + Execution Results ── #}
+<div class="row g-4 mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header"
+                 style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white;">
+                <h5 class="mb-0"><i class="bi bi-bug"></i> Bugs by Status</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Status</th>
+                            <th class="text-center">Count</th>
+                            <th>Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge bg-primary"><i class="bi bi-circle-fill"></i> Open</span></td>
+                            <td class="text-center fw-bold">{{ open_bugs }}</td>
+                            <td class="text-muted">
+                                {% if total_bugs > 0 %}{{ ((open_bugs / total_bugs * 100) | round(1)) }}%
+                                {% else %}0%{% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-info text-dark"><i class="bi bi-arrow-repeat"></i> In Progress</span></td>
+                            <td class="text-center fw-bold">{{ in_progress_bugs }}</td>
+                            <td class="text-muted">
+                                {% if total_bugs > 0 %}{{ ((in_progress_bugs / total_bugs * 100) | round(1)) }}%
+                                {% else %}0%{% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-success"><i class="bi bi-check-circle"></i> Resolved</span></td>
+                            <td class="text-center fw-bold">{{ resolved_bugs }}</td>
+                            <td class="text-muted">
+                                {% if total_bugs > 0 %}{{ ((resolved_bugs / total_bugs * 100) | round(1)) }}%
+                                {% else %}0%{% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-secondary"><i class="bi bi-lock"></i> Closed</span></td>
+                            <td class="text-center fw-bold">{{ closed_bugs }}</td>
+                            <td class="text-muted">
+                                {% if total_bugs > 0 %}{{ ((closed_bugs / total_bugs * 100) | round(1)) }}%
+                                {% else %}0%{% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header"
+                 style="background: linear-gradient(135deg, var(--success-color) 0%, var(--info-color) 100%); color: white;">
+                <h5 class="mb-0"><i class="bi bi-play-circle"></i> Execution Results</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Result</th>
+                            <th class="text-center">Count</th>
+                            <th>Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="badge bg-success"><i class="bi bi-check-circle"></i> Pass</span></td>
+                            <td class="text-center fw-bold">{{ pass_count }}</td>
+                            <td class="text-muted">
+                                {% if total_executions > 0 %}{{ ((pass_count / total_executions * 100) | round(1)) }}%
+                                {% else %}0%{% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="badge bg-danger"><i class="bi bi-x-circle"></i> Fail</span></td>
+                            <td class="text-center fw-bold">{{ fail_count }}</td>
+                            <td class="text-muted">
+                                {% if total_executions > 0 %}{{ ((fail_count / total_executions * 100) | round(1)) }}%
+                                {% else %}0%{% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header"
+                 style="background: linear-gradient(135deg, var(--warning-color) 0%, var(--danger-color) 100%); color: white;">
+                <h5 class="mb-0"><i class="bi bi-exclamation-triangle"></i> Bugs by Severity</h5>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-hover mb-0">
+                    <thead class="table-light">
+                        <tr><th>Severity</th><th class="text-center">Count</th></tr>
+                    </thead>
+                    <tbody>
+                    {% for row in severity_counts %}
+                        <tr>
+                            <td>
+                                {% if row.severity == 'Low' %}
+                                    <span class="badge bg-secondary"><i class="bi bi-info-circle"></i> {{ row.severity }}</span>
+                                {% elif row.severity == 'Medium' %}
+                                    <span class="badge bg-warning text-dark"><i class="bi bi-exclamation-circle"></i> {{ row.severity }}</span>
+                                {% elif row.severity == 'High' %}
+                                    <span class="badge bg-danger"><i class="bi bi-exclamation-triangle"></i> {{ row.severity }}</span>
+                                {% elif row.severity == 'Critical' %}
+                                    <span class="badge bg-dark"><i class="bi bi-x-octagon"></i> {{ row.severity }}</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">{{ row.severity }}</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center fw-bold">{{ row.count }}</td>
+                        </tr>
+                    {% else %}
+                        <tr><td colspan="2" class="text-center text-muted">No data.</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# ── Row 3: Coverage Report ── #}
+<div class="row g-4 mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header"
+                 style="background: linear-gradient(135deg, #6f42c1 0%, #0dcaf0 100%); color: white;">
+                <h5 class="mb-0">
+                    <i class="bi bi-shield-check"></i> Code Coverage Report
+                    {% if coverage_total is not none %}
+                        <span class="badge bg-white text-dark ms-2">
+                            Overall: {{ coverage_total }}%
+                        </span>
+                    {% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+            {% if coverage_modules %}
+                <table class="table table-hover table-sm mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Module</th>
+                            <th class="text-center">Statements</th>
+                            <th class="text-center">Covered</th>
+                            <th class="text-center">Coverage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for mod in coverage_modules %}
+                        <tr>
+                            <td><code>{{ mod.name }}</code></td>
+                            <td class="text-center">{{ mod.stmts }}</td>
+                            <td class="text-center">{{ mod.covered }}</td>
+                            <td class="text-center">
+                                {% if mod.percent >= 80 %}
+                                    <span class="badge bg-success">{{ mod.percent }}%</span>
+                                {% elif mod.percent >= 50 %}
+                                    <span class="badge bg-warning text-dark">{{ mod.percent }}%</span>
+                                {% else %}
+                                    <span class="badge bg-danger">{{ mod.percent }}%</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot class="table-light fw-bold">
+                        <tr>
+                            <td>TOTAL</td>
+                            <td colspan="2" class="text-center"></td>
+                            <td class="text-center">
+                                {% if coverage_total >= 80 %}
+                                    <span class="badge bg-success">{{ coverage_total }}%</span>
+                                {% elif coverage_total >= 50 %}
+                                    <span class="badge bg-warning text-dark">{{ coverage_total }}%</span>
+                                {% else %}
+                                    <span class="badge bg-danger">{{ coverage_total }}%</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            {% else %}
+                <div class="alert alert-secondary mb-0">
+                    <i class="bi bi-info-circle"></i>
+                    No coverage data yet. Run
+                    <code>pytest</code> to generate coverage.
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{# ── Row 4: Mutation Testing Results ── #}
+<div class="row g-4 mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header"
+                 style="background: linear-gradient(135deg, #dc3545 0%, #6f42c1 100%); color: white;">
+                <h5 class="mb-0">
+                    <i class="bi bi-virus"></i> Mutation Testing Results
+                    {% if mutation_data %}
+                        <span class="badge bg-white text-dark ms-2">
+                            Score: {{ mutation_data.score }}%
+                        </span>
+                    {% endif %}
+                </h5>
+            </div>
+            <div class="card-body">
+            {% if mutation_data %}
+                {# Summary stat cards #}
+                <div class="row g-3 mb-3">
+                    <div class="col-md-3">
+                        <div class="stat-card text-center"
+                             style="border-top: 4px solid #6f42c1;">
+                            <p class="text-uppercase text-muted small">Total Mutants</p>
+                            <h3>{{ mutation_data.total }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card text-center"
+                             style="border-top: 4px solid var(--success-color);">
+                            <p class="text-uppercase text-muted small">Killed</p>
+                            <h3 class="text-success">{{ mutation_data.killed }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card text-center"
+                             style="border-top: 4px solid var(--danger-color);">
+                            <p class="text-uppercase text-muted small">Survived</p>
+                            <h3 class="text-danger">{{ mutation_data.survived }}</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="stat-card text-center"
+                             style="border-top: 4px solid var(--warning-color);">
+                            <p class="text-uppercase text-muted small">Mutation Score</p>
+                            {% if mutation_data.score >= 80 %}
+                                <h3 class="text-success">{{ mutation_data.score }}%</h3>
+                            {% elif mutation_data.score >= 50 %}
+                                <h3 class="text-warning">{{ mutation_data.score }}%</h3>
+                            {% else %}
+                                <h3 class="text-danger">{{ mutation_data.score }}%</h3>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {# Explanation #}
+                <div class="alert alert-info mb-0">
+                    <i class="bi bi-info-circle"></i>
+                    <strong>Mutation Score = (Killed / Total) × 100</strong><br>
+                    Higher is better — means your tests catch more code changes.
+                    <ul class="mb-0 mt-2">
+                        <li><strong>Killed:</strong> Tests detected the mutation (good!)</li>
+                        <li><strong>Survived:</strong> Tests didn't catch the mutation (needs improvement)</li>
+                    </ul>
+                </div>
+
+            {% else %}
+                <div class="alert alert-secondary mb-0">
+                    <i class="bi bi-info-circle"></i>
+                    Run mutation tests to see results.
+                    <code class="ms-2">run_mutation.bat</code>
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{# ── Quick Links ── #}
+<div class="mt-2 d-flex gap-2">
+    <a href="{{ url_for('bugs.list_bugs') }}" class="btn btn-danger">
+        <i class="bi bi-bug"></i> View All Bugs
+    </a>
+    <a href="{{ url_for('test_cases.list_test_cases') }}" class="btn btn-primary">
+        <i class="bi bi-clipboard-check"></i> View Test Cases
+    </a>
+    <a href="{{ url_for('executions.list_executions') }}" class="btn btn-success">
+        <i class="bi bi-play-circle"></i> View Executions
+    </a>
+</div>
+{% endblock %}
